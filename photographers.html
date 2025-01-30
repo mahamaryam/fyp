@@ -12,64 +12,14 @@
 
 <!-- AOS JS -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <style>
-    .filter-container {
-      background: #f9f9f9;
-      border-right: 1px solid #ddd;
-    }
-    .venue-card {
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      padding: 15px;
-      margin-bottom: 15px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .venue-card img {
-      width: 100%;
-      height: auto;
-      border-radius: 5px;
-    }
-    .venue-info {
-      margin-top: 10px;
-    }
-    .dropdown-menu {
-      max-height: 250px;
-      overflow-y: auto;
-    }
-    .container-custom {
-  margin-left: 7.5px;  /* Halved margin for left side */
-  margin-right: 7.5px;  /* Halved margin for right side */
-}
 
-@media (max-width: 768px) {
-  .container-custom {
-    margin-left: 10px;  /* Adjust margin for smaller screens */
-    margin-right: 10px;  /* Adjust margin for smaller screens */
-  }
-}
-
-@media (max-width: 576px) {
-  .container-custom {
-    margin-left: 5px;  /* Further adjust for very small screens */
-    margin-right: 5px;  /* Further adjust for very small screens */
-  }
-}
-
-    @media (max-width: 768px) {
-      .filter-container {
-        border-right: none;
-      }
-    }
-    .dropdown:hover .dropdown-menu {
-    display: block;
-}
-  </style>
       <link rel="stylesheet" href="style.css" />
 
 </head>
 <div id="progress-bar"></div>
 
-<body>
+<body style="background: url('img/bg.jpg') no-repeat center center fixed; background-size: cover;">
+  <div class="overlay"></div>
  <!-- Navbar -->
  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
   <div class="container-fluid">
@@ -81,8 +31,8 @@
       </a>
       <ul class="dropdown-menu dropdown-menu-animated" aria-labelledby="weddingWizDropdown">
         <li><a class="dropdown-item" href="venues.html">💍 Venue Recommendations</a></li>
-        <li><a class="dropdown-item" href="threeD.html">🎁 3-D Decor Visualization</a></li>
-        <li><a class="dropdown-item" href="thirdOption.html">📋 Vendor Recommendations</a></li>
+        <li><a class="dropdown-item" href="3d.html">🎁 3-D Decor Visualization</a></li>
+        <li><a class="dropdown-item" href="decor.html">📋 Vendor Recommendations</a></li>
       </ul>
     </div>
 
@@ -119,6 +69,9 @@
         <li class="nav-item">
           <a class="nav-link" href="homepage.html#section4">Contact</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">Login</a>
+      </li>
       </ul>
     </div>
   </div>
@@ -146,7 +99,7 @@
     <div class="row">
       <!-- Filter Section -->
       <div class="col-md-3 col-12 filter-container p-4">
-        <button class="btn btn-primary w-100 d-md-none mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#filterSection" aria-expanded="false" aria-controls="filterSection">
+        <button class="btn btn-primary w-100 d-md-none mb-3" style="background-color: #bb536f" type="button" data-bs-toggle="collapse" data-bs-target="#filterSection" aria-expanded="false" aria-controls="filterSection">
           Filters
         </button>
         <div class="collapse d-md-block" id="filterSection">
@@ -276,7 +229,7 @@
                 <h6>some photographer</h6>
                 <p class="text-muted"> Address</p>
                 <p class="mb-1">Starting at ?</p>
-                <button class="btn btn-outline-primary btn-sm">View Details</button>
+                <button class="explore-btn">View Details</button>
               </div>
             </div>
           </div>
@@ -288,7 +241,7 @@
                 <h6>some photographer</h6>
                 <p class="text-muted"> Address</p>
                 <p class="mb-1">Starting at ?</p>
-                <button class="btn btn-outline-primary btn-sm">View Details</button>
+                <button class="explore-btn">View Details</button>
               </div>
             </div>
           </div>
@@ -303,7 +256,7 @@
                   <h6>venue name</h6>
                   <p class="text-muted">Address</p>
                   <p class="mb-1">Starting at ?</p>
-                  <button class="btn btn-outline-primary btn-sm">View Details</button>
+                  <button class="explore-btn">View Details</button>
                 </div>
               </div>
             </div>
@@ -315,7 +268,7 @@
                   <h6>venue name</h6>
                   <p class="text-muted">Address</p>
                   <p class="mb-1">Starting at </p>
-                  <button class="btn btn-outline-primary btn-sm">View Details</button>
+                  <button class="explore-btn">View Details</button>
                 </div>
               </div>
             </div>
@@ -330,7 +283,7 @@
                   <h6>venue name</h6>
                   <p class="text-muted">Address of photographer</p>
                   <p class="mb-1">Starting at PKR </p>
-                  <button class="btn btn-outline-primary btn-sm">View Details</button>
+                  <button class="explore-btn">View Details</button>
                 </div>
               </div>
             </div>
@@ -342,7 +295,7 @@
                   <h6>venue name</h6>
                   <p class="text-muted">address of the photographer</p>
                   <p class="mb-1">Starting at ?</p>
-                  <button class="btn btn-outline-primary btn-sm">View Details</button>
+                  <button class="explore-btn">View Details</button>
                 </div>
               </div>
             </div>
@@ -357,7 +310,7 @@
                   <h6>Venue NAME</h6>
                   <p class="text-muted">Address</p>
                   <p class="mb-1">Starting at PKR</p>
-                  <button class="btn btn-outline-primary btn-sm">View Details</button>
+                  <button class="explore-btn">View Details</button>
                 </div>
               </div>
             </div>
@@ -369,7 +322,7 @@
                   <h6>Venue name</h6>
                   <p class="text-muted">Address</p>
                   <p class="mb-1">Starting at PKR</p>
-                  <button class="btn btn-outline-primary btn-sm">View Details</button>
+                  <button class="explore-btn">View Details</button>
                 </div>
               </div>
             </div>
@@ -415,36 +368,10 @@
       </div>
   </div>
 </footer>
-  <script>
-    $(document).ready(function () {
-      $(".form-check-input").change(function () {
-        console.log($(this).attr("id") + " filter applied.");
-        // Add filtering logic here
-      });
-    });
-  </script>
-  <script>
-    AOS.init();
-  </script>
-  <script>
+    <script src="filtercheck.js"></script>
+     <script src="AOS.js"></script>
+    <script src="dropdown.js"></script>
+    <script src="progressbar.js"></script>
 
-    document.querySelectorAll('.dropdown').forEach(dropdown => {
-      dropdown.addEventListener('mouseover', () => {
-        const menu = dropdown.querySelector('.dropdown-menu');
-        if (menu) {
-          menu.classList.add('show');
-        }
-      });
-    
-      dropdown.addEventListener('mouseleave', () => {
-        const menu = dropdown.querySelector('.dropdown-menu');
-        if (menu) {
-          menu.classList.remove('show');
-        }
-      });
-    });
-    
-      </script>
-      <script src="progressbar.js"></script>
-</body>
+  </body>
 </html>
