@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- AOS Library -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <title>Wedding Wiz</title>
+    <style>
+        /* Ensuring the image stops before the form */
+        .fixed-img {
+            max-width: 100%;
+            width: 100%;
+            height: 700px; /* Fixed height for all images */
+            object-fit: cover; /* Ensures images are not distorted */
+        }
+        
+        .row.align-items-center {
+            display: flex;
+            justify-content: space-between; /* Ensures equal spacing between columns */
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+        
+        .col-lg-4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px; /* Equal space between images */
+        }
+        
+        /* Optional: Styling the row to ensure equal space between columns */
+        .padding {
+            padding: 50px 0;
+        }
+        
+        .text-center form {
+            margin-top: 30px;
+        }
+        
+        /* Ensuring equal space between the elements */
+        @media (max-width: 768px) {
+            .row.align-items-center {
+                display: flex;
+                flex-direction: column; /* Stack the elements vertically */
+                align-items: center; /* Center-align the items */
+            }
+        
+            /* Each column should take up full width on smaller screens */
+            .col-md-12.col-lg-4 {
+                width: 100%;
+                margin-bottom: 15px; /* Add space between elements */
+            }
+        
+            /* Form should have enough space */
+            .col-md-12.col-lg-4.text-center {
+                width: 100%; /* Full width for the form */
+                margin: 15px 0; /* Margin around the form */
+            }
+        
+            /* Ensure images are responsive */
+            .col-md-12.col-lg-4 img {
+                width: 100%; /* Make images take full width */
+            }
+        }
+        </style>
+        
+</head>
+
+<body>
+    <div class="up">
+        <a href="#carouselExampleCaptions"><button><i class="fas fa-chevron-up"></i></button></a>
+    </div>
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img id="logo-nav" src="img/logo.png" alt="" style="width: 60px; height: 50px; margin-right: 10px;" />
+                Wedding Wiz
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span><i class="fad fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav" id="nav-content">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html#carouselExampleCaptions">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#ser">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#team">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <button id="backButton" onclick="window.history.back()">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+    <div id="stars" style="z-index: 100;"></div>
+
+    
+    <!-- Three column section -->
+    <h1 class="display-4" data-aos="fade-down" data-aos-duration="1000" id="ser" style="margin-top: 50px;">Enter Your Preferences</h1>
+    <div class="container padding">
+        <!-- Venue Recommendations -->
+        <div class="row align-items-center mb-5">
+            <div class="col-md-12 col-lg-4" data-aos="fade-right">
+                <img src="img/getstarted1.jpg" class="img-fluid fixed-img mt-3" alt="Venue Recommendations"
+                style="margin-left: 100px;">
+            </div>
+            <div class="col-md-12 col-lg-4 text-center" data-aos="fade-up">
+                <div class="form-box">
+                <form >
+                    <!-- Guest Count -->
+                    <div class="mb-3">
+                        <label for="guestCount" class="form-label" style="font-size: 24px;">Guest Count</label>
+                        <input type="number" class="form-control" id="guestCount" placeholder="Enter guest count" required>
+                    </div>
+
+                    <!-- Budget -->
+                    <div class="mb-3">
+                        <label for="budget" class="form-label"  style="font-size: 24px;">Budget (PKR)</label>
+                        <input type="number" class="form-control" id="budget" placeholder="Enter budget in PKR" required>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="mb-3">
+                        <label for="location" class="form-label"  style="font-size: 24px;">Location</label>
+                        <select class="form-select" id="location" required>
+                            <option value="" disabled selected>Select a city</option>
+                            <option value="Karachi">Karachi</option>
+                            <option value="Lahore">Lahore</option>
+                            <option value="Islamabad">Islamabad</option>
+                            <option value="Rawalpindi">Rawalpindi</option>
+                            <option value="Peshawar">Peshawar</option>
+                            <option value="Quetta">Quetta</option>
+                            <option value="Multan">Multan</option>
+                            <option value="Faisalabad">Faisalabad</option>
+                            <option value="Sialkot">Sialkot</option>
+                            <option value="Gujranwala">Gujranwala</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary" 
+                    style="width: 300px; height: 60px; border-radius: 10px; font-size: 20px;" id="startPlanning" >Start Planning!</button>
+                </form>
+            </div>
+            </div>
+            <div class="col-md-12 col-lg-4" data-aos="fade-left">
+                <img src="img/getstarted2.jpg" class="img-fluid fixed-img mt-3" alt="Event Setup"
+                style="margin-right: 340px;">
+            </div>
+            </div>
+        </div>
+        <hr class="my-4">
+    </div>
+    
+    <!--Footer-->
+
+    <footer>
+        <div class="container-fluid padding">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <hr class="light">
+                    <img id="logo-footer" src="img/logo.png" alt="">
+                    <hr class="light">
+                    <p>042-123-456</p>
+                    <p>@gmail.com</p>
+                    <p>Street 104 north</p>
+                    <p>Demo city,00000</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Our hours</h5>
+                    <hr class="light">
+                    <p>Monday:9am to 5pm</p>
+                    <p>Saturday:10am to 4pm</p>
+                    <p>Sunday:Closed</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Serivice Areas</h5>
+                    <hr class="light">
+                    <p>Demo city,00000</p>
+                    <p>Demo city,00000</p>
+                    <p>Demo city,00000</p>
+                    <p>Demo city,00000</p>
+                </div>
+            </div>
+            <div class="col-12 text-center">
+                <hr class="light">
+                <h5>&copy; Wedding Wiz</h5>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init(); // Initialize AOS animations
+</script>
+       
+<script>
+        const button = document.getElementById('startPlanning');
+        button.addEventListener('click', function() {
+            event.preventDefault();
+            window.location.href = 'recommendedVenues.html';
+        });
+</script>
+        <script>
+
+        function createFallingStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 100;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                const size = Math.random() * 3 + 1; // Random size
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                const positionX = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = Math.random() * 5 + 5;
+                star.style.left = `${positionX}vw`;
+                star.style.animationDuration = `${duration}s`;
+                star.style.animationDelay = `-${delay}s`;
+                starsContainer.appendChild(star);
+            }
+        }
+        window.onload = createFallingStars;
+    </script>
+</body>
+
+</html>

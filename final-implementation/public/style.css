@@ -1,0 +1,466 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(45deg,#ffe4e1, #f8c8dc, #f4cccc, #e0b0ff, #ffc6ff);
+  background-size: 1500% 1500%;/*jugaar*/
+  animation: gradientAnimation 7s ease infinite;
+  position: relative;
+  min-height: 100vh; 
+}
+
+.navbar {
+  background-color: rgba(193, 149, 197, 0.6) !important; /* White with 80% opacity */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+.im1 {
+  filter: blur(5px); /* Adjust the pixel value to control the blur intensity */
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.lead
+{
+  text-align: center;
+}
+.up {
+  position: fixed;
+  top: 95%;
+  z-index: 1;
+}
+.up button {
+  border-radius: 2rem;
+  height: 2rem;
+  border: 0;
+  background-color: rgb(12, 12, 12);
+}
+h2.display-2 {
+  font-family: 'Great Vibes', cursive;
+}
+
+/* Animation for About Us section title */
+@keyframes slideDown {
+  from {
+      transform: translateY(-50px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+/* Animation for About Us section description */
+@keyframes slideUp {
+  from {
+      transform: translateY(50px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+/* Basic styling for the stars container */
+#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    pointer-events: none;
+    z-index: -1; /* Ensure stars are behind the content */
+    overflow: hidden;
+}
+#backButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #6648b1;
+border: 1px solid #563d7c;
+  color: white;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Styling for individual stars */
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+/* Keyframes for the falling animation */
+@keyframes fall {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+.fixed-img {
+  width: 80%;            /* Responsive width */
+  height: 250px;          /* Fixed height */
+  object-fit: cover;      /* Crop image to fit the container without distortion */
+  border-radius: 10px;    /* Optional: rounded corners for aesthetics */
+}
+
+#ser
+{
+  text-align: center;
+}
+/* Apply animations to About Us section */
+#about h1 {
+  animation: slideDown 1s ease-out;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.user-image img {
+  margin-top: -40px; /* Slightly pulls up the image */
+}
+
+.user-content h5 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.user-content p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+.ratings i {
+  color: blue;
+}
+
+.row.gx-2 {
+  --bs-gutter-x: 1rem; /* Reduce horizontal gutter between columns */
+}
+
+.row.gy-3 {
+  --bs-gutter-y: 1.5rem; /* Set vertical spacing */
+}
+
+@media (max-width: 768px) {
+  .col-md-3 {
+      flex: 0 0 90%; /* Cards take most of the screen on smaller devices */
+      margin: 0 auto;
+  }
+}
+
+#about .lead {
+  animation: slideUp 1.5s ease-out;
+}
+
+/* Adjust the About Us section for responsiveness if needed */
+@media (max-width: 768px) {
+  #about h1 {
+      animation-duration: 1s;
+  }
+
+  #about .lead {
+      animation-duration: 1.5s;
+  }
+}
+
+.navbar {
+  
+  padding: 0.8rem;
+}
+.navbar-nav li {
+  padding-right: 1.2rem;
+}
+.nav-link {
+  font-size: 1.1em !important;
+}
+.carousel-inner .im1 {
+  background-image: url(img/b3.jpg);
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+.carousel-inner .im2 {
+  background-image: url(img/b1.jpg);
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+.carousel-inner .im3 {
+  background-image: url(img/b2.jpg);
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-inner .im4 {
+  background-image: url(img/venue1.jpg);
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-inner .im5 {
+  background-image: url(img/venue2.jpg);
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-inner .im6 {
+  background-image: url(img/venue3.jpg);
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.carousel-caption h1 {
+  font-size: 500%;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 10px #000;
+}
+.carousel-caption h3 {
+  font-size: 200%;
+  font-weight: 500;
+  text-shadow: 1px 1px 10px #7c6b6b;
+  padding-bottom: 1rem;
+}
+.form-box {
+  border: 2px solid #ddd; /* Light border around the form */
+  padding: 20px; /* Padding inside the box */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  background-color: rgba(193, 149, 197, 0.6);
+  max-width: 500px; /* Limit the width of the box */
+  margin: 0 auto; /* Center the box horizontally */
+  margin-top: 50px; /* Add some top margin for spacing */
+}
+
+.btn-primary {
+  background-color: #6648b1;
+  border: 1px solid #563d7c;
+}
+.btn-primary:hover, #backButton:hover  {
+  background-color: #563d7c;
+  border: 1px solid #563d7c;
+}
+.jumbotron {
+  padding: 3rem;
+  border-radius: 0%;
+  background-color: #f6f0f0;
+}
+.padding {
+  padding-bottom: 2rem;
+}
+.welcome {
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+.welcome hr {
+  border-top: 3px solid #b4b4b4;
+  width: 95%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.fa-code {
+  color: #e54d26;
+}
+.fa-bold {
+  color: #563d7c;
+}
+.fa-css3 {
+  color: #2163af;
+}
+.fa-code,
+.fa-bold,
+.fa-css3 {
+  font-size: 4em;
+  margin: 1rem;
+}
+figure {
+  background-image: url(img/boot.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  border-radius: 0.3rem;
+  background-size: cover;
+  position: relative; /* Added to ensure visibility */
+  z-index: 1; /* Ensure it stays on top if other elements overlap */
+}
+
+.fixed-wrap {
+  width: 100%;
+  height: 100%;
+  position: absolute; /* Ensure it fills the parent */
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure the background image stays behind content */
+}
+#logo-nav {
+  width: 30px;
+  height: 30px;
+}
+#nav-content {
+  margin-left: auto;
+}
+#logo-footer {
+  width: 30px;
+  height: 30px;
+}
+h1 {
+  font-weight: 600;
+}
+.card {
+  height: 100%;
+  margin-top: 1rem;
+}
+.social i {
+  font-size: 300%;
+  margin-right: 1em;
+  margin-top: 1em;
+}
+.fa-twitter {
+  color: #00acee;
+}
+.fa-google-plus-g {
+  color: #db4a39;
+}
+.fa-instagram {
+  background-image: linear-gradient(45deg, #bdb96a, #cf2858);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+.fa-youtube{
+    color: red;
+}
+.fa-chevron-up{
+    color: #fff;
+}
+footer {
+  background-color: rgba(181, 125, 186, 0.6);
+  color: #e2e1e1;
+}
+footer h5{
+    padding: .2rem;
+}
+/*Media queries*/
+@media (min-width: 1200px) {
+  .img-fluid {
+    max-width: 100%;
+    height: 50%;
+    margin-left: 16rem;
+    margin-top: 1em;
+  }
+  .philosophy {
+    max-height: 50%;
+  }
+  .h2,
+  h2 {
+    font-size: 2rem;
+    margin-top: 5%;
+  }
+  .image {
+    width: 80%;
+    height: 82%;
+    margin-left: 7em;
+  }
+}
+@media (max-width: 768px) {
+    .carousel-caption {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .carousel-caption h1 {
+        font-size: 400%;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 10px #000;
+      }
+      .carousel-caption h3 {
+        font-size: 150%;
+        font-weight: 500;
+        text-shadow: 1px 1px 10px #7c6b6b;
+        padding-bottom: 1rem;
+      }
+      .carousel-caption button{
+          font-size: 100%;
+      }
+}
+@media (max-width: 576px) {
+    .carousel-caption {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50);
+      }
+      .carousel-caption h1 {
+        font-size: 220%;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 10px #000;
+      }
+      .carousel-caption h3 {
+        font-size: 100%;
+        font-weight: 500;
+        text-shadow: 1px 1px 10px #7c6b6b;
+        padding-bottom: 1rem;
+      }
+      .carousel-caption button{
+          font-size: 50%;
+      }
+}
+
+.carousel-item {
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}

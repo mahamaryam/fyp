@@ -1,0 +1,51 @@
+2025-04-09 02:40:54 [info]: Connecting to MongoDB ...
+2025-04-09 02:41:24 [error]: [31mConnection to MongoDB instance failed[39m
+2025-04-09 02:52:01 [info]: Connecting to MongoDB ...
+2025-04-09 02:52:31 [error]: [31mConnection to MongoDB instance failed[39m
+2025-04-09 02:56:32 [info]: Connecting to MongoDB ...
+2025-04-09 02:56:36 [info]: [32mConnected successfully to MongoDB instance[39m
+2025-04-09 02:56:36 [info]: [36mListening on [32mhttp://localhost:4201[36m[39m
+2025-04-09 02:56:36 [info]: env: [33mdevelopment[39m 🚀
+2025-04-09 02:56:40 [warn]: 404 - Not Found - /
+2025-04-09 02:56:42 [warn]: 404 - Not Found - /favicon.ico
+2025-04-09 02:59:21 [warn]: 404 - Not Found - /api/auth/login
+2025-04-09 03:04:29 [error]: 500 - Server Error - User validation failed: gender: `non-binary` is not a valid enum value for path `gender`.
+2025-04-09 04:09:05 [info]: Connecting to MongoDB ...
+2025-04-09 04:09:09 [info]: [32mConnected successfully to MongoDB instance[39m
+2025-04-09 04:09:09 [info]: [36mListening on [32mhttp://localhost:4201[36m[39m
+2025-04-09 04:09:09 [info]: env: [33mdevelopment[39m 🚀
+2025-04-09 04:09:16 [warn]: 404 - Not Found - /
+2025-04-09 04:09:16 [warn]: 404 - Not Found - /favicon.ico
+2025-04-09 04:10:32 [warn]: 404 - Not Found - /api/auth/sign-up
+2025-04-09 04:10:39 [warn]: 404 - Not Found - /api/auth/sign-up
+2025-04-09 04:12:30 [warn]: 404 - Not Found - /api/auth/login
+2025-04-09 04:26:45 [warn]: Unauthenticated access attempt: Invalid session token - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2Y1YWYzY2M5ZDViMzI0MzZiNWFNmIiLCJpYXQiOjE3NDQxNTQ1NDZ9.tim8BEVBeYwJbGJIziWC8W2Kb4rpVkMEy0VkIEDIuDE
+2025-04-09 04:28:57 [warn]: 404 - Not Found - /api/venue-decorations
+2025-04-09 04:39:11 [info]: Connecting to MongoDB ...
+2025-04-09 04:39:20 [info]: [32mConnected successfully to MongoDB instance[39m
+2025-04-09 04:39:20 [info]: [36mListening on [32mhttp://localhost:4201[36m[39m
+2025-04-09 04:39:20 [info]: env: [33mdevelopment[39m 🚀
+2025-04-09 04:40:26 [warn]: Unauthenticated access attempt: Invalid session token - YOUR_JWT_TOKEN
+2025-04-09 04:41:06 [error]: 500 - Server Error - Venue validation failed: addressZip: Path `addressZip` is required., addressArea: Path `addressArea` is required., addressCity: Path `addressCity` is required., addressCountry: Path `addressCountry` is required.
+2025-04-09 04:46:48 [info]: Connecting to MongoDB ...
+2025-04-09 04:46:52 [info]: [32mConnected successfully to MongoDB instance[39m
+2025-04-09 04:46:52 [info]: [36mListening on [32mhttp://localhost:4201[36m[39m
+2025-04-09 04:46:52 [info]: env: [33mdevelopment[39m 🚀
+2025-04-09 04:51:40 [error]: 500 - Server Error - Cast to ObjectId failed for value "1" (type string) at path "_id" for model "Venue"
+2025-04-09 04:57:13 [warn]: 404 - Not Found - /api/venue/67f5b6027967a7a447e399e8
+2025-04-09 05:03:50 [info]: Connecting to MongoDB ...
+2025-04-09 05:03:54 [info]: [32mConnected successfully to MongoDB instance[39m
+2025-04-09 05:03:54 [info]: [36mListening on [32mhttp://localhost:4201[36m[39m
+2025-04-09 05:03:54 [info]: env: [33mdevelopment[39m 🚀
+2025-04-09 05:04:33 [error]: 500 - Server Error - VenueDecoration validation failed: venueId: Cast to ObjectId failed for value "VENUE_ID" (type string) at path "venueId" because of "BSONError"
+2025-04-09 05:07:10 [error]: 500 - Server Error - Cast to ObjectId failed for value "VENUE_DECORATION_ID" (type string) at path "_id" for model "VenueDecoration"
+2025-04-09 05:31:01 [warn]: 404 - Not Found - /public/venue.html
+2025-04-09 05:31:01 [warn]: 404 - Not Found - /favicon.ico
+2025-04-09 05:32:44 [warn]: 404 - Not Found - /api/
+2025-04-09 05:32:45 [warn]: 404 - Not Found - /api/
+2025-04-09 05:32:47 [warn]: 404 - Not Found - /api/
+2025-04-09 05:32:48 [warn]: 404 - Not Found - /api/
+2025-04-09 05:32:49 [warn]: 404 - Not Found - /api/
+2025-04-09 05:32:50 [warn]: 404 - Not Found - /api/
+2025-04-09 05:32:51 [warn]: 404 - Not Found - /api/
+2025-04-09 05:32:53 [warn]: 404 - Not Found - /api/

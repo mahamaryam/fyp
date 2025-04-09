@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popup Modal</title>
+    <style>
+      /* Basic Modal Styling */
+      .modal-wrapper {
+        background: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: none; /* Hidden initially */
+      }
+      .modal {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        max-width: 300px;
+        background: #fff;
+        padding: 20px;
+        margin: 20vh auto;
+        border-radius: 8px;
+        position: relative;
+      }
+      .modal h2 {
+        margin: 0 0 10px;
+      }
+      .modal p {
+        margin-bottom: 15px;
+      }
+      .modal a {
+        text-decoration: none;
+        background: crimson;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+      .modal-close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        font-size: 18px;
+        color: red;
+        cursor: pointer;
+      }
+      button {
+        background: crimson;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Button to Open Modal -->
+    <button id="open-modal">Click Me</button>
+
+    <!-- Modal Popup -->
+    <div class="modal-wrapper" id="modal">
+      <div class="modal">
+        <div class="modal-close" id="close-modal">X</div>
+        <div class="modal-content">
+          <button>Reset Venue</button>
+          <button>Reset Budget</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      // Get elements
+      const modalWrapper = document.getElementById("modal");
+      const openModalBtn = document.getElementById("open-modal");
+      const closeModalBtn = document.getElementById("close-modal");
+
+      // Open modal when button is clicked
+      openModalBtn.addEventListener("click", () => {
+        modalWrapper.style.display = "block";
+      });
+
+      // Close modal when "X" button is clicked
+      closeModalBtn.addEventListener("click", () => {
+        modalWrapper.style.display = "none";
+      });
+
+      // Close modal when clicking outside of it
+      window.addEventListener("click", (event) => {
+        if (event.target === modalWrapper) {
+          modalWrapper.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
