@@ -1,0 +1,524 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-size: 1500% 1500%;/*jugaar*/
+    position: relative;
+  min-height: 100vh; 
+}
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url('img/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  overflow-x: hidden;
+}
+.dropdown-menu {
+  max-height: 250px;
+  overflow-y: auto;
+}
+.container-custom {
+margin-left: 7.5px;  /* Halved margin for left side */
+margin-right: 7.5px;  /* Halved margin for right side */
+}
+
+@media (max-width: 768px) {
+.container-custom {
+margin-left: 10px;  /* Adjust margin for smaller screens */
+margin-right: 10px;  /* Adjust margin for smaller screens */
+}
+}
+
+@media (max-width: 576px) {
+.container-custom {
+margin-left: 5px;  /* Further adjust for very small screens */
+margin-right: 5px;  /* Further adjust for very small screens */
+}
+}
+
+@media (max-width: 768px) {
+  .filter-container {
+    border-right: none;
+  }
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: -1;
+}
+
+.filter-container {
+  background: rgba(255, 255, 255, 0.7);
+  border-right: 15px solid #ddd;
+}
+.explore-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #bb536f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.explore-btn:hover {
+  background-color: #a33552;
+}
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: red; /* Temporary static color for testing */
+  width: 0%;
+  z-index: 9999;
+}
+.venue-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  background-color: #ffffff;
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.venue-card img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  height: auto;
+}
+.venue-info {
+  padding: 15px;
+}
+
+.venue-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.venue-card:hover img {
+  transform: scale(1.1);
+}
+
+.venue-card .btn {
+  margin-top: 10px;
+}
+
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.lead
+{
+  text-align: center;
+}
+.up {
+  position: fixed;
+  top: 95%;
+  z-index: 1;
+}
+.up button {
+  border-radius: 2rem;
+  height: 2rem;
+  border: 0;
+  background-color: rgb(12, 12, 12);
+}
+
+h2.display-2 {
+  font-family: 'Great Vibes', cursive;
+}
+/* Dropdown Menu Styling */
+.dropdown-menu-animated {
+  background-color: #f8f9fa; /* Soft background */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+  padding: 20px; /* Larger padding */
+  min-width: 250px; /* Bigger width */
+  transform: scaleY(0); /* Start collapsed */
+  transform-origin: top; /* Animate from the top */
+  transition: transform 0.3s ease-out; /* Smooth rolling animation */
+  opacity: 0; /* Hidden by default */
+  visibility: hidden; /* Avoid interactions when hidden */
+}
+
+/* Show the dropdown */
+.dropdown-menu.show {
+  transform: scaleY(1); /* Expand vertically */
+  opacity: 1; /* Fully visible */
+  visibility: visible;
+}
+
+/* Dropdown Item Styling */
+.dropdown-menu-animated .dropdown-item {
+  font-size: 1.2rem; /* Larger text */
+  color: #495057; /* Neutral text color */
+  padding: 12px 20px; /* More spacing */
+  border-radius: 8px; /* Rounded hover effect */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+}
+
+.dropdown-menu-animated .dropdown-item:hover {
+  background-color: #e9ecef; /* Subtle hover background */
+  color: #bb536f; /* Brand color for hover text */
+  font-weight: 600; /* Slightly bold on hover */
+}
+
+/* Adjust Navbar Brand */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Icon Style */
+.dropdown-menu-animated .dropdown-item > i {
+  font-size: 1.5rem;
+  color: #e299b7;
+}
+.typewriter-container {
+  width: 100%;
+  margin: 20px auto;
+  padding: 10px;
+  position: relative;
+  min-height: 25rem;
+}
+
+#typewriter {
+  white-space: pre-wrap; /* Ensures new lines are handled */
+  font-size: 1.2rem;
+  color: #343a40;
+  display: inline;
+  font-size: 40px;
+}
+
+#cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2rem;
+  background-color: #343a40;
+  animation: blink 0.6s steps(1) infinite;
+}
+
+/* Cursor blinking animation */
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.pink-gradient {
+  background: linear-gradient(90deg,#fff0b3, #fda7e5); /* Multi-color gradient */
+}
+
+.red-gradient {
+    background: linear-gradient(135deg, #a25151, #cc5a5a);
+    color: white;
+}
+/* Animation for About Us section title */
+@keyframes slideDown {
+  from {
+      transform: translateY(-50px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+/* Animation for About Us section description */
+@keyframes slideUp {
+  from {
+      transform: translateY(50px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+/* Define the animation keyframes for sliding from the left */
+@keyframes slideFromLeft {
+  0% {
+      transform: translateX(-100%); /* Start off-screen to the left */
+      opacity: 0; /* Initially invisible */
+  }
+  100% {
+      transform: translateX(0); /* End position is normal */
+      opacity: 1; /* Fully visible */
+  }
+}
+/* Define the animation keyframes */
+@keyframes slideFromRight {
+  0% {
+      transform: translateX(100%); /* Start off-screen to the right */
+      opacity: 0; /* Initially invisible */
+  }
+  100% {
+      transform: translateX(0); /* End position is normal */
+      opacity: 1; /* Fully visible */
+  }
+}
+
+
+.user-image img {
+  margin-top: -40px; /* Slightly pulls up the image */
+}
+
+.user-content h5 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.user-content p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+
+.row.gx-2 {
+  --bs-gutter-x: 1rem; /* Reduce horizontal gutter between columns */
+}
+
+.row.gy-3 {
+  --bs-gutter-y: 1.5rem; /* Set vertical spacing */
+}
+
+@media (max-width: 768px) {
+  .col-md-3 {
+      flex: 0 0 90%; /* Cards take most of the screen on smaller devices */
+      margin: 0 auto;
+  }
+}
+
+#about .lead {
+  animation: slideUp 1.5s ease-out;
+}
+
+/* Adjust the About Us section for responsiveness if needed */
+@media (max-width: 768px) {
+  #about h1 {
+      animation-duration: 1s;
+  }
+
+  #about .lead {
+      animation-duration: 1.5s;
+  }
+}
+
+.navbar {
+  
+  padding: 0.8rem;
+}
+.navbar-nav li {
+  padding-right: 1.2rem;
+}
+.nav-link {
+  font-size: 1.1em !important;
+}
+
+.form-box {
+  border: 2px solid #ddd; /* Light border around the form */
+  padding: 20px; /* Padding inside the box */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  background-color: rgba(193, 149, 197, 0.6);
+  max-width: 500px; /* Limit the width of the box */
+  margin: 0 auto; /* Center the box horizontally */
+  margin-top: 50px; /* Add some top margin for spacing */
+}
+
+
+.padding {
+  padding-bottom: 2rem;
+}
+.goButton
+{
+  border-radius: 20px;
+  color: black;
+  background-color: #6648b1;
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.welcome {
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+.welcome hr {
+  border-top: 3px solid #b4b4b4;
+  width: 95%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+figure {
+  background-image: url(img/boot.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  border-radius: 0.3rem;
+  background-size: cover;
+  position: relative; /* Added to ensure visibility */
+  z-index: 1; /* Ensure it stays on top if other elements overlap */
+}
+
+.fixed-wrap {
+  width: 100%;
+  height: 100%;
+  position: absolute; /* Ensure it fills the parent */
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure the background image stays behind content */
+}
+#logo-nav {
+  width: 30px;
+  height: 30px;
+}
+#nav-content {
+  margin-left: auto;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+footer {
+  background-color: rgba(240, 240, 240, 0.5); /* Grey with 60% transparency */
+  color: #000000b2; /* Light grey text color */
+}
+
+footer h5{
+    padding: .2rem;
+}
+#logo-footer {
+  width: 30px;
+  height: 30px;
+}
+/*Media queries*/
+@media (min-width: 1200px) {
+  .img-fluid {
+    max-width: 100%;
+    height: 50%;
+    margin-left: 16rem;
+    margin-top: 1em;
+  }
+  .philosophy {
+    max-height: 50%;
+  }
+  .h2,
+  h2 {
+    font-size: 2rem;
+    margin-top: 5%;
+  }
+  .image {
+    width: 80%;
+    height: 82%;
+    margin-left: 7em;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  height: 100%;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.5);
+  color: rgb(0, 0, 0);
+  transition: left 0.3s ease;
+  padding: 20px;
+  z-index: 999;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 90px;
+  right: -50px;
+  background-color: transparent;
+  color: black;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 999;
+  padding: 15px 30px;
+  font-size: 25px;
+
+}
+
+.toggle-btn:focus {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .toggle-btn {
+      top: 60px;
+  }
+}
+
+.container-box {
+  position: relative;
+  top: 37%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 70%;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.dynamic-image {
+  max-width: 90%;
+  max-height: 60%;
+  border-radius: 10px;
+}
