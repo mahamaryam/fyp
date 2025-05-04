@@ -120,6 +120,9 @@
     <!-- API Client -->
     <script src="js/api-client.js"></script>
 
+    <!-- Validation -->
+    <script src="js/validation.js"></script>
+
     <!-- Custom JS -->
     <script>
         // Initialize AOS animations
@@ -133,35 +136,50 @@
         });
 
         // Handle signup form submission
-        const signupForm = document.getElementById('signupForm');
-        signupForm.addEventListener('submit', async function (e) {
-            e.preventDefault();
+        document.addEventListener('DOMContentLoaded', function () {
+            const signupForm = document.getElementById('signupForm');
+            const inputs = signupForm.querySelectorAll('input, select');
 
-            const userData = {
-                fullName: document.getElementById('fullName').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                password: document.getElementById('password').value.trim(),
-                dateOfBirth: document.getElementById('dateOfBirth').value,
-                gender: document.getElementById('gender').value || undefined
-            };
+            // Add real-time validation
+            inputs.forEach(input => {
+                input.addEventListener('blur', function () {
+                    Validation.validateField(this);
+                });
 
-            if (!userData.email || !userData.password || !userData.fullName || !userData.dateOfBirth) {
-                alert('Please fill in all required fields.');
-                return;
-            }
+                input.addEventListener('input', function () {
+                    if (this.classList.contains('is-invalid')) {
+                        Validation.validateField(this);
+                    }
+                });
+            });
 
-            try {
-                const response = await ApiClient.auth.signup(userData);
-                if (response.token) {
-                    alert('Account created successfully! You will be redirected to login.');
-                    window.location.href = 'login.html';
-                } else {
-                    alert(response.message || 'Signup failed. Please try again.');
+            signupForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (Validation.validateForm(this)) {
+                    const formData = {
+                        fullName: document.getElementById('fullName').value.trim(),
+                        email: document.getElementById('email').value.trim(),
+                        password: document.getElementById('password').value,
+                        dateOfBirth: document.getElementById('dateOfBirth').value,
+                        gender: document.getElementById('gender').value
+                    };
+
+                    // Store user data in localStorage
+                    localStorage.setItem('userData', JSON.stringify(formData));
+
+                    // Show success message
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'alert alert-success mt-3';
+                    successMessage.textContent = 'Signup successful! Redirecting to login...';
+                    signupForm.appendChild(successMessage);
+
+                    // Redirect to login page after 2 seconds
+                    setTimeout(() => {
+                        window.location.href = 'login.html';
+                    }, 2000);
                 }
-            } catch (error) {
-                console.error('Error:', error);
-                alert(error.message || 'An error occurred. Please try again later.');
-            }
+            });
         });
 
         // Prevent logged in users from accessing signup page
