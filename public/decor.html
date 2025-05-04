@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,95 +8,99 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  
-      <link rel="stylesheet" href="style.css" />
 
-      <!-- AOS CSS -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 
-<!-- AOS JS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
 </head>
 <div id="progress-bar"></div>
+
 <body style="background: url('img/bg.jpg') no-repeat center center fixed; background-size: cover;">
   <div class="overlay"></div>
- <!-- Navbar -->
- <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-  <div class="container-fluid">
-    <div class="dropdown">
-      <a class="navbar-brand dropdown-toggle" href="#" id="weddingWizDropdown" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
-        <img id="logo-nav" src="img/logo.png" alt="" style="width: 60px; height: 50px; margin-right: 10px;" />
-        <span style="font-size: 1.5rem;" onclick="location.href='homepage.html'">Wedding Wiz</span>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-animated" aria-labelledby="weddingWizDropdown">
-        <li><a class="dropdown-item" href="venues.html">💍 Venue Recommendations</a></li>
-        <li><a class="dropdown-item" href="3d.html">🎁 3-D Decor Visualization</a></li>
-        <li><a class="dropdown-item" href="decor.html">📋 Vendor Recommendations</a></li>
-      </ul>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+      <div class="dropdown">
+        <a class="navbar-brand dropdown-toggle" href="#" id="weddingWizDropdown" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <img id="logo-nav" src="img/logo.png" alt="" style="width: 60px; height: 50px; margin-right: 10px;" />
+          <span style="font-size: 1.5rem;" onclick="location.href='homepage.html'">Wedding Wiz</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-animated" aria-labelledby="weddingWizDropdown">
+          <li><a class="dropdown-item" href="venues.html">💍 Venue Recommendations</a></li>
+          <li><a class="dropdown-item" href="3d.html">🎁 3-D Decor Visualization</a></li>
+          <li><a class="dropdown-item" href="decor.html">📋 Vendor Recommendations</a></li>
+        </ul>
+      </div>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fad fa-bars"></i></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto" id="nav-content">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="homepage.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="homepage.html#section3">Clients</a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <a class="navbar-brand dropdown-toggle" href="#" id="serviesDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 18px;"
+                onclick="location.href='services.html'">
+                Services
+              </a>
+              <ul class="dropdown-menu dropdown-menu-animated" aria-labelledby="servicesDropdown">
+                <li><a class="dropdown-item" href="venues.html"> Wedding Venues</a></li>
+                <li><a class="dropdown-item" href="photographers.html"> Photographers</a></li>
+                <li><a class="dropdown-item" href="decor.html"> Decor </a></li>
+                <li><a class="dropdown-item" href="attire.html"> Attire </a></li>
+                <li><a class="dropdown-item" href="jewellery.html"> Jewellary </a></li>
+                <li><a class="dropdown-item" href="salon.html"> Bridal Salon </a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="homepage.html#section4">Contact</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span><i class="fad fa-bars"></i></span>
-    </button>
+  <div style="margin-left: 50px; margin-right: 50px; font-size: 22px;">
+    <br>
+    <h1 data-aos="fade-down" data-aos-duration="1000">
+      Decor Vendors in Pakistan
+    </h1><br>
+    <p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+      WeddingWiz helps you find the best decor vendors in Pakistan, ensuring your wedding
+      venue looks stunning. Whether you're dreaming of a classic or contemporary design, we
+      connect you with vendors who can bring your vision to life.</p><br>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto" id="nav-content">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="homepage.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="homepage.html#section3">Clients</a>
-        </li>
-        <li class="nav-item">
-          <div class="dropdown">
-            <a class="navbar-brand dropdown-toggle" href="#" id="serviesDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false" style="font-size: 18px;" onclick="location.href='services.html'">
-              Services
-            </a>
-            <ul class="dropdown-menu dropdown-menu-animated" aria-labelledby="servicesDropdown">
-              <li><a class="dropdown-item" href="venues.html"> Wedding Venues</a></li>
-              <li><a class="dropdown-item" href="photographers.html"> Photographers</a></li>
-              <li><a class="dropdown-item" href="decor.html"> Decor </a></li>
-              <li><a class="dropdown-item" href="attire.html"> Attire </a></li>
-              <li><a class="dropdown-item" href="jewellery.html"> Jewellary </a></li>
-              <li><a class="dropdown-item" href="salon.html"> Bridal Salon </a></li>
-            </ul>
-          </div>
-        </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="homepage.html#section4">Contact</a>
-        </li>
-      </ul>
-    </div>
+    <p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+      We know how important wedding decor is, so WeddingWiz provides personalized recommendations
+      based on your style, budget, and preferences. From floral arrangements to lighting, we
+      ensure you find the perfect decor vendor to transform your special day.
+    </p><br>
+
   </div>
-</nav>
-
-<div style="margin-left: 50px; margin-right: 50px; font-size: 22px;">
-<br><h1 data-aos="fade-down" data-aos-duration="1000">
-  Decor Vendors in Pakistan
-</h1><br>
-<p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
-    WeddingWiz helps you find the best decor vendors in Pakistan, ensuring your wedding 
-    venue looks stunning. Whether you're dreaming of a classic or contemporary design, we 
-    connect you with vendors who can bring your vision to life.</p><br>
-
-
-<p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
-    We know how important wedding decor is, so WeddingWiz provides personalized recommendations
-     based on your style, budget, and preferences. From floral arrangements to lighting, we 
-     ensure you find the perfect decor vendor to transform your special day.
-</p><br>
-
-</div>
   <div class="container-custom">
     <div class="row">
       <!-- Filter Section -->
       <div class="col-md-3 col-12 filter-container p-4">
-        <button class="btn btn-primary w-100 d-md-none mb-3"  style="background-color: #bb536f" type="button" data-bs-toggle="collapse" data-bs-target="#filterSection" aria-expanded="false" aria-controls="filterSection">
+        <button class="btn btn-primary w-100 d-md-none mb-3" style="background-color: #bb536f" type="button"
+          data-bs-toggle="collapse" data-bs-target="#filterSection" aria-expanded="false" aria-controls="filterSection">
           Filters
         </button>
         <div class="collapse d-md-block" id="filterSection">
@@ -136,8 +141,8 @@
             </table>
           </div>
           <hr>
-           <!-- Sub Area Filter -->
-           <div class="mb-3">
+          <!-- Sub Area Filter -->
+          <div class="mb-3">
             <h6>Sub Area</h6>
             <input type="text" class="form-control" placeholder="e.g., G-10 Markaz">
           </div>
@@ -185,7 +190,7 @@
             </table>
           </div>
           <hr>
-         
+
           <!-- Staff Filter -->
           <div class="mb-3">
             <h6>Staff</h6>
@@ -215,7 +220,7 @@
             </table>
           </div>
           <hr>
-        
+
         </div>
       </div>
 
@@ -226,11 +231,11 @@
           <!-- Venue Card 1 -->
           <div class="col-lg-6 col-md-12 mb-4">
             <div class="venue-card">
-              <img src="https://via.placeholder.com/500x300" alt="Venue Image">
+              <img src="img/venues/venue1.jpg" alt="Venue Image">
               <div class="venue-info">
-                <h6>some vendor</h6>
-                <p class="text-muted"> Address</p>
-                <p class="mb-1">Starting at ?</p>
+                <h6>Royal Decorators</h6>
+                <p class="text-muted">DHA Phase 5, Lahore</p>
+                <p class="mb-1">Starting at PKR 50,000</p>
                 <button class="explore-btn">View Details</button>
               </div>
             </div>
@@ -238,143 +243,140 @@
           <!-- Venue Card 2 -->
           <div class="col-lg-6 col-md-12 mb-4">
             <div class="venue-card">
-              <img src="https://via.placeholder.com/500x300" alt="Venue Image">
+              <img src="img/venues/venue2.jpg" alt="Venue Image">
               <div class="venue-info">
-                <h6>some vendor</h6>
-                <p class="text-muted"> Address</p>
-                <p class="mb-1">Starting at ?</p>
+                <h6>Elite Wedding Decor</h6>
+                <p class="text-muted">Gulberg, Lahore</p>
+                <p class="mb-1">Starting at PKR 75,000</p>
                 <button class="explore-btn">View Details</button>
               </div>
             </div>
           </div>
-          <!-- More Cards -->
         </div>
         <div class="row">
-            <!-- Venue Card 1 -->
-            <div class="col-lg-6 col-md-12 mb-4">
-              <div class="venue-card">
-                <img src="https://via.placeholder.com/500x300" alt="Venue Image">
-                <div class="venue-info">
-                  <h6>venue name</h6>
-                  <p class="text-muted">Address</p>
-                  <p class="mb-1">Starting at ?</p>
-                  <button class="explore-btn">View Details</button>
-                </div>
+          <!-- Venue Card 3 -->
+          <div class="col-lg-6 col-md-12 mb-4">
+            <div class="venue-card">
+              <img src="img/venues/venue3.jpg" alt="Venue Image">
+              <div class="venue-info">
+                <h6>Dream Decor Studio</h6>
+                <p class="text-muted">Clifton, Karachi</p>
+                <p class="mb-1">Starting at PKR 60,000</p>
+                <button class="explore-btn">View Details</button>
               </div>
             </div>
-            <!-- Venue Card 2 -->
-            <div class="col-lg-6 col-md-12 mb-4">
-              <div class="venue-card">
-                <img src="https://via.placeholder.com/500x300" alt="Venue Image">
-                <div class="venue-info">
-                  <h6>venue name</h6>
-                  <p class="text-muted">Address</p>
-                  <p class="mb-1">Starting at </p>
-                  <button class="explore-btn">View Details</button>
-                </div>
-              </div>
-            </div>
-            <!-- More Cards -->
           </div>
-          <div class="row">
-            <!-- Venue Card 1 -->
-            <div class="col-lg-6 col-md-12 mb-4">
-              <div class="venue-card">
-                <img src="https://via.placeholder.com/500x300" alt="Venue Image">
-                <div class="venue-info">
-                  <h6>venue name</h6>
-                  <p class="text-muted">Address of photographer</p>
-                  <p class="mb-1">Starting at PKR </p>
-                  <button class="explore-btn">View Details</button>
-                </div>
+          <!-- Venue Card 4 -->
+          <div class="col-lg-6 col-md-12 mb-4">
+            <div class="venue-card">
+              <img src="img/venues/venue1.jpg" alt="Venue Image">
+              <div class="venue-info">
+                <h6>Luxury Event Designers</h6>
+                <p class="text-muted">F-7, Islamabad</p>
+                <p class="mb-1">Starting at PKR 85,000</p>
+                <button class="explore-btn">View Details</button>
               </div>
             </div>
-            <!-- Venue Card 2 -->
-            <div class="col-lg-6 col-md-12 mb-4">
-              <div class="venue-card">
-                <img src="https://via.placeholder.com/500x300" alt="Venue Image">
-                <div class="venue-info">
-                  <h6>venue name</h6>
-                  <p class="text-muted">address of the photographer</p>
-                  <p class="mb-1">Starting at ?</p>
-                  <button class="explore-btn">View Details</button>
-                </div>
-              </div>
-            </div>
-            <!-- More Cards -->
           </div>
-          <div class="row">
-            <!-- Venue Card 1 -->
-            <div class="col-lg-6 col-md-12 mb-4">
-              <div class="venue-card">
-                <img src="https://via.placeholder.com/500x300" alt="Venue Image">
-                <div class="venue-info">
-                  <h6>Venue NAME</h6>
-                  <p class="text-muted">Address</p>
-                  <p class="mb-1">Starting at PKR</p>
-                  <button class="explore-btn">View Details</button>
-                </div>
+        </div>
+        <div class="row">
+          <!-- Venue Card 5 -->
+          <div class="col-lg-6 col-md-12 mb-4">
+            <div class="venue-card">
+              <img src="img/venues/venue2.jpg" alt="Venue Image">
+              <div class="venue-info">
+                <h6>Elegant Decor Solutions</h6>
+                <p class="text-muted">Bahria Town, Rawalpindi</p>
+                <p class="mb-1">Starting at PKR 45,000</p>
+                <button class="explore-btn">View Details</button>
               </div>
             </div>
-            <!-- Venue Card 2 -->
-            <div class="col-lg-6 col-md-12 mb-4">
-              <div class="venue-card">
-                <img src="https://via.placeholder.com/500x300" alt="Venue Image">
-                <div class="venue-info">
-                  <h6>Venue name</h6>
-                  <p class="text-muted">Address</p>
-                  <p class="mb-1">Starting at PKR</p>
-                  <button class="explore-btn">View Details</button>
-                </div>
-              </div>
-            </div>
-            <!-- More Cards -->
           </div>
+          <!-- Venue Card 6 -->
+          <div class="col-lg-6 col-md-12 mb-4">
+            <div class="venue-card">
+              <img src="img/venues/venue3.jpg" alt="Venue Image">
+              <div class="venue-info">
+                <h6>Grand Wedding Decor</h6>
+                <p class="text-muted">Defence, Karachi</p>
+                <p class="mb-1">Starting at PKR 70,000</p>
+                <button class="explore-btn">View Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Venue Card 7 -->
+          <div class="col-lg-6 col-md-12 mb-4">
+            <div class="venue-card">
+              <img src="img/venues/venue1.jpg" alt="Venue Image">
+              <div class="venue-info">
+                <h6>Classic Event Decor</h6>
+                <p class="text-muted">Model Town, Lahore</p>
+                <p class="mb-1">Starting at PKR 55,000</p>
+                <button class="explore-btn">View Details</button>
+              </div>
+            </div>
+          </div>
+          <!-- Venue Card 8 -->
+          <div class="col-lg-6 col-md-12 mb-4">
+            <div class="venue-card">
+              <img src="img/venues/venue2.jpg" alt="Venue Image">
+              <div class="venue-info">
+                <h6>Premium Decor Services</h6>
+                <p class="text-muted">Blue Area, Islamabad</p>
+                <p class="mb-1">Starting at PKR 65,000</p>
+                <button class="explore-btn">View Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-      <!--Footer-->
-<footer style="margin-top: 200px;">
-  <div class="container-fluid padding">
+  <!--Footer-->
+  <footer style="margin-top: 200px;">
+    <div class="container-fluid padding">
       <div class="row text-center">
-          <div class="col-md-4">
-              <hr class="light">
-              <img id="logo-footer" src="img/logo.png" alt="">
-              <hr class="light">
-              <p>042-123-456</p>
-              <p>weddingwiz@gmail.com</p>
-              <p>Street 123</p>
-              <p>Lahore, 54000</p>
-          </div>
-          <div class="col-md-4">
-              <hr class="light">
-              <h5>Our Timings</h5>
-              <hr class="light">
-              <p>Monday:9am to 5pm</p>
-              <p>Saturday:10am to 4pm</p>
-              <p>Sunday:Closed</p>
-          </div>
-          <div class="col-md-4">
-              <hr class="light">
-              <h5>Service Areas</h5>
-              <hr class="light">
-              <p>Karachi, 07516</p>
-              <p>Islamabad, 44050</p>
-              <p>Rawalpindi, 44000</p>
-              <p>Multan, 66000</p>
-          </div>
+        <div class="col-md-4">
+          <hr class="light">
+          <img id="logo-footer" src="img/logo.png" alt="">
+          <hr class="light">
+          <p>042-123-456</p>
+          <p>weddingwiz@gmail.com</p>
+          <p>Street 123</p>
+          <p>Lahore, 54000</p>
+        </div>
+        <div class="col-md-4">
+          <hr class="light">
+          <h5>Our Timings</h5>
+          <hr class="light">
+          <p>Monday:9am to 5pm</p>
+          <p>Saturday:10am to 4pm</p>
+          <p>Sunday:Closed</p>
+        </div>
+        <div class="col-md-4">
+          <hr class="light">
+          <h5>Service Areas</h5>
+          <hr class="light">
+          <p>Karachi, 07516</p>
+          <p>Islamabad, 44050</p>
+          <p>Rawalpindi, 44000</p>
+          <p>Multan, 66000</p>
+        </div>
       </div>
       <div class="col-12 text-center">
-          <hr class="light">
-          <h5>&copy; WeddingWizOfficial</h5>
+        <hr class="light">
+        <h5>&copy; WeddingWizOfficial</h5>
       </div>
-  </div>
-</footer>
-  
+    </div>
+  </footer>
+
   <script src="filtercheck.js"></script>
   <script src="AOS.js"></script>
   <script src="dropdown.js"></script>
   <script src="progressbar.js"></script>
 
 </body>
+
 </html>

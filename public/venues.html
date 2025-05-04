@@ -455,65 +455,122 @@
   <script src="progressbar.js"></script>
   <script src="js/api-client.js"></script>
   <script src="js/venues.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/navbar.js"></script>
   <script>
     // Initialize AOS
     AOS.init();
 
-    // Handle booking confirmation
-    document.getElementById('confirmBooking').addEventListener('click', async function () {
-      const venueId = document.getElementById('venueId').value;
-      const bookingData = {
-        date: document.getElementById('bookingDate').value,
-        numberOfGuests: document.getElementById('numberOfGuests').value,
-        eventType: document.getElementById('eventType').value
-      };
-
-      try {
-        const response = await ApiClient.venues.book(venueId, bookingData);
-        if (response.success) {
-          alert('Venue booked successfully!');
-          $('#bookingModal').modal('hide');
-        } else {
-          alert(response.message || 'Failed to book venue. Please try again.');
-        }
-      } catch (error) {
-        console.error('Booking error:', error);
-        alert('Failed to book venue. Please try again later.');
+    // Check authentication on page load
+    document.addEventListener('DOMContentLoaded', function () {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        // If no token, redirect to login
+        window.location.href = 'login.html';
+        return;
       }
+
+      // Token exists, continue loading venues
+      loadVenues(token);
     });
 
-    // Handle filter changes
-    const filterInputs = document.querySelectorAll('input[type="checkbox"]');
-    filterInputs.forEach(input => {
-      input.addEventListener('change', function () {
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-          let show = true;
+    async function loadVenues(token) {
+      try {
+        const response = await fetch('http://localhost:4201/api/venues', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
 
-          // City filter
-          const selectedCities = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
-            .map(cb => cb.id);
+        if (!response.ok) {
+          if (response.status === 401) {
+            // Token is invalid or expired
+            localStorage.removeItem('token');
+            window.location.href = 'login.html';
+            return;
+          }
+          throw new Error('Failed to load venues');
+        }
 
-          if (selectedCities.length > 0) {
-            const venueCity = card.dataset.city;
-            show = selectedCities.includes(venueCity.toLowerCase());
+        const data = await response.json();
+        // Process and display venues data
+        displayVenues(data);
+      } catch (error) {
+        console.error('Error loading venues:', error);
+        alert('Failed to load venues. Please try again later.');
+      }
+    }
+
+    function displayVenues(venues) {
+      const venuesContainer = document.querySelector('.venues-container');
+      if (!venuesContainer) return;
+
+      venuesContainer.innerHTML = venues.map(venue => `
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                <div class="card h-100">
+                    <img src="${venue.image}" class="card-img-top" alt="${venue.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${venue.name}</h5>
+                        <p class="card-text">${venue.description}</p>
+                        <p class="card-text"><small class="text-muted">Capacity: ${venue.capacity} guests</small></p>
+                        <p class="card-text"><strong>Price: $${venue.price}</strong></p>
+                        <button class="btn btn-primary book-venue" data-venue-id="${venue._id}">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+      // Add booking handlers
+      document.querySelectorAll('.book-venue').forEach(button => {
+        button.addEventListener('click', async (e) => {
+          const token = localStorage.getItem('token');
+          if (!token) {
+            window.location.href = 'login.html';
+            return;
           }
 
-          // Budget filter
-          const selectedBudgets = Array.from(document.querySelectorAll('input[id^="budget"]:checked'))
-            .map(cb => cb.id);
+          const venueId = e.target.dataset.venueId;
+          try {
+            const bookingData = {
+              date: new Date().toISOString(),
+              numberOfGuests: 100,
+            };
 
-          if (selectedBudgets.length > 0 && show) {
-            const venuePrice = parseInt(card.dataset.price);
-            show = selectedBudgets.some(budget => {
-              const [min, max] = budget.match(/\d+/g).map(Number);
-              return venuePrice >= min && (!max || venuePrice <= max);
+            const response = await fetch(`http://localhost:4201/api/venues/${venueId}/book`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+              },
+              body: JSON.stringify(bookingData)
             });
-          }
 
-          card.closest('.col-lg-4').style.display = show ? '' : 'none';
+            if (!response.ok) {
+              if (response.status === 401) {
+                localStorage.removeItem('token');
+                window.location.href = 'login.html';
+                return;
+              }
+              throw new Error('Failed to book venue');
+            }
+
+            const result = await response.json();
+            if (result.success) {
+              alert('Venue booked successfully!');
+            } else {
+              alert(result.message || 'Failed to book venue');
+            }
+          } catch (error) {
+            console.error('Booking error:', error);
+            alert('Failed to book venue. Please try again later.');
+          }
         });
       });
+    }
+
+    // Require authentication for venues page
+    document.addEventListener('DOMContentLoaded', function () {
+      Auth.requireAuth();
     });
   </script>
 </body>

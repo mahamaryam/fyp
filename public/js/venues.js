@@ -1,11 +1,5 @@
 // Venues page functionality
 document.addEventListener('DOMContentLoaded', async function() {
-    // Check authentication
-    if (!ApiClient.helpers.isAuthenticated()) {
-        window.location.href = 'login.html';
-        return;
-    }
-
     // Load venues
     try {
         const venues = await ApiClient.venues.getAll();

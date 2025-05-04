@@ -163,6 +163,11 @@
                 alert(error.message || 'An error occurred. Please try again later.');
             }
         });
+
+        // Prevent logged in users from accessing signup page
+        document.addEventListener('DOMContentLoaded', function () {
+            Auth.redirectIfLoggedIn();
+        });
     </script>
 </body>
 
