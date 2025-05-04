@@ -153,7 +153,7 @@
                 });
             });
 
-            signupForm.addEventListener('submit', function (e) {
+            signupForm.addEventListener('submit', async function (e) {
                 e.preventDefault();
 
                 if (Validation.validateForm(this)) {
@@ -165,19 +165,48 @@
                         gender: document.getElementById('gender').value
                     };
 
-                    // Store user data in localStorage
-                    localStorage.setItem('userData', JSON.stringify(formData));
+                    try {
+                        // Make API request to register
+                        const response = await fetch('http://localhost:4201/api/auth/sign-up', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(formData)
+                        });
 
-                    // Show success message
-                    const successMessage = document.createElement('div');
-                    successMessage.className = 'alert alert-success mt-3';
-                    successMessage.textContent = 'Signup successful! Redirecting to login...';
-                    signupForm.appendChild(successMessage);
+                        const data = await response.json();
 
-                    // Redirect to login page after 2 seconds
-                    setTimeout(() => {
-                        window.location.href = 'login.html';
-                    }, 2000);
+                        if (response.ok && data.token) {
+                            // Store the token and user data
+                            localStorage.setItem('token', data.token);
+                            localStorage.setItem('isLoggedIn', 'true');
+                            localStorage.setItem('currentUser', JSON.stringify(data.user));
+
+                            // Show success message
+                            const successMessage = document.createElement('div');
+                            successMessage.className = 'alert alert-success mt-3';
+                            successMessage.textContent = 'Signup successful! Redirecting to homepage...';
+                            signupForm.appendChild(successMessage);
+
+                            // Redirect to homepage after 2 seconds
+                            setTimeout(() => {
+                                window.location.href = 'homepage.html';
+                            }, 2000);
+                        } else {
+                            // Show error message from API
+                            const errorMessage = document.createElement('div');
+                            errorMessage.className = 'alert alert-danger mt-3';
+                            errorMessage.textContent = data.message || 'Signup failed. Please try again.';
+                            signupForm.appendChild(errorMessage);
+                        }
+                    } catch (error) {
+                        console.error('Signup error:', error);
+                        const errorMessage = document.createElement('div');
+                        errorMessage.className = 'alert alert-danger mt-3';
+                        errorMessage.textContent = 'An error occurred. Please try again.';
+                        signupForm.appendChild(errorMessage);
+                    }
                 }
             });
         });

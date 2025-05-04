@@ -97,46 +97,6 @@
         // Initialize AOS
         AOS.init();
 
-        // Handle form submission
-        document.querySelector('form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            try {
-                // Make the API call directly
-                const response = await fetch('http://localhost:4201/api/auth/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ email, password })
-                });
-
-                const data = await response.json();
-
-                if (response.ok && data.token) {
-                    // Store the token in localStorage
-                    localStorage.setItem('token', data.token);
-                    console.log('Token stored:', data.token); // For debugging
-
-                    // Redirect to homepage
-                    window.location.href = 'homepage.html';
-                } else {
-                    alert(data.message || 'Login failed. Please try again.');
-                }
-            } catch (error) {
-                console.error('Login error:', error);
-                alert('Login failed. Please try again.');
-            }
-        });
-
-        // Prevent logged in users from accessing login page
-        document.addEventListener('DOMContentLoaded', function () {
-            Auth.redirectIfLoggedIn();
-        });
-
         document.addEventListener('DOMContentLoaded', function () {
             const loginForm = document.getElementById('loginForm');
             const inputs = loginForm.querySelectorAll('input');
@@ -154,41 +114,70 @@
                 });
             });
 
-            loginForm.addEventListener('submit', function (e) {
+            loginForm.addEventListener('submit', async function (e) {
                 e.preventDefault();
 
-                if (Validation.validateForm(this)) {
-                    const formData = {
-                        email: document.getElementById('email').value.trim(),
-                        password: document.getElementById('password').value
-                    };
+                const formData = {
+                    email: document.getElementById('email').value.trim(),
+                    password: document.getElementById('password').value
+                };
 
-                    // Get stored user data
-                    const storedUserData = JSON.parse(localStorage.getItem('userData'));
+                console.log('Attempting login with:', formData);
 
-                    if (storedUserData &&
-                        storedUserData.email === formData.email &&
-                        storedUserData.password === formData.password) {
+                try {
+                    // Make API request to login
+                    const response = await fetch('http://localhost:4201/api/auth/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    console.log('Response status:', response.status);
+                    const data = await response.json();
+                    console.log('Response data:', data);
+
+                    if (response.ok && data.token) {
+                        console.log('Login successful, storing token and user data');
+                        // Store the token and user data
+                        localStorage.setItem('token', data.token);
+                        localStorage.setItem('isLoggedIn', 'true');
+                        localStorage.setItem('currentUser', JSON.stringify(data.user));
 
                         // Show success message
                         const successMessage = document.createElement('div');
                         successMessage.className = 'alert alert-success mt-3';
-                        successMessage.textContent = 'Login successful! Redirecting to dashboard...';
+                        successMessage.textContent = 'Login successful! Redirecting to homepage...';
                         loginForm.appendChild(successMessage);
 
-                        // Store login status
-                        localStorage.setItem('isLoggedIn', 'true');
-
-                        // Redirect to dashboard after 2 seconds
+                        // Redirect to homepage after 2 seconds
                         setTimeout(() => {
-                            window.location.href = 'dashboard.html';
+                            window.location.href = 'homepage.html';
                         }, 2000);
                     } else {
-                        Validation.showError(document.getElementById('email'), 'Invalid email or password');
-                        Validation.showError(document.getElementById('password'), 'Invalid email or password');
+                        console.log('Login failed:', data.message);
+                        // Show error message from API
+                        const errorMessage = document.createElement('div');
+                        errorMessage.className = 'alert alert-danger mt-3';
+                        errorMessage.textContent = data.message || 'Invalid email or password';
+                        loginForm.appendChild(errorMessage);
                     }
+                } catch (error) {
+                    console.error('Login error:', error);
+                    const errorMessage = document.createElement('div');
+                    errorMessage.className = 'alert alert-danger mt-3';
+                    errorMessage.textContent = 'An error occurred. Please try again.';
+                    loginForm.appendChild(errorMessage);
                 }
             });
+        });
+
+        // Prevent logged in users from accessing login page
+        document.addEventListener('DOMContentLoaded', function () {
+            if (localStorage.getItem('isLoggedIn') === 'true') {
+                window.location.href = 'homepage.html';
+            }
         });
     </script>
 </body>

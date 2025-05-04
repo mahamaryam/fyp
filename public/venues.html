@@ -463,38 +463,33 @@
 
     // Check authentication on page load
     document.addEventListener('DOMContentLoaded', function () {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        // If no token, redirect to login
+      if (!Auth.isLoggedIn()) {
         window.location.href = 'login.html';
         return;
       }
 
-      // Token exists, continue loading venues
-      loadVenues(token);
+      // User is logged in, continue loading venues
+      loadVenues();
     });
 
-    async function loadVenues(token) {
+    async function loadVenues() {
       try {
-        const response = await fetch('http://localhost:4201/api/venues', {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
+        const venuesContainer = document.querySelector('.venues-container');
+        if (!venuesContainer) return;
 
-        if (!response.ok) {
-          if (response.status === 401) {
-            // Token is invalid or expired
-            localStorage.removeItem('token');
-            window.location.href = 'login.html';
-            return;
-          }
-          throw new Error('Failed to load venues');
-        }
+        // Sample venues data (replace with actual API call)
+        const venues = [
+          {
+            name: "Luxury Wedding Hall",
+            description: "Elegant venue with modern amenities",
+            capacity: 500,
+            price: 5000,
+            image: "img/venues/venue1.jpg"
+          },
+          // Add more venue objects as needed
+        ];
 
-        const data = await response.json();
-        // Process and display venues data
-        displayVenues(data);
+        displayVenues(venues);
       } catch (error) {
         console.error('Error loading venues:', error);
         alert('Failed to load venues. Please try again later.');
@@ -506,72 +501,33 @@
       if (!venuesContainer) return;
 
       venuesContainer.innerHTML = venues.map(venue => `
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-                <div class="card h-100">
-                    <img src="${venue.image}" class="card-img-top" alt="${venue.name}">
-                    <div class="card-body">
-                        <h5 class="card-title">${venue.name}</h5>
-                        <p class="card-text">${venue.description}</p>
-                        <p class="card-text"><small class="text-muted">Capacity: ${venue.capacity} guests</small></p>
-                        <p class="card-text"><strong>Price: $${venue.price}</strong></p>
-                        <button class="btn btn-primary book-venue" data-venue-id="${venue._id}">Book Now</button>
-                    </div>
-                </div>
+        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+          <div class="card h-100">
+            <img src="${venue.image}" class="card-img-top" alt="${venue.name}">
+            <div class="card-body">
+              <h5 class="card-title">${venue.name}</h5>
+              <p class="card-text">${venue.description}</p>
+              <p class="card-text"><small class="text-muted">Capacity: ${venue.capacity} guests</small></p>
+              <p class="card-text"><strong>Price: PKR ${venue.price}</strong></p>
+              <button class="btn btn-primary book-venue" data-venue-id="${venue._id}">Book Now</button>
             </div>
-        `).join('');
+          </div>
+        </div>
+      `).join('');
 
       // Add booking handlers
       document.querySelectorAll('.book-venue').forEach(button => {
-        button.addEventListener('click', async (e) => {
-          const token = localStorage.getItem('token');
-          if (!token) {
+        button.addEventListener('click', function () {
+          if (!Auth.isLoggedIn()) {
             window.location.href = 'login.html';
             return;
           }
-
-          const venueId = e.target.dataset.venueId;
-          try {
-            const bookingData = {
-              date: new Date().toISOString(),
-              numberOfGuests: 100,
-            };
-
-            const response = await fetch(`http://localhost:4201/api/venues/${venueId}/book`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-              },
-              body: JSON.stringify(bookingData)
-            });
-
-            if (!response.ok) {
-              if (response.status === 401) {
-                localStorage.removeItem('token');
-                window.location.href = 'login.html';
-                return;
-              }
-              throw new Error('Failed to book venue');
-            }
-
-            const result = await response.json();
-            if (result.success) {
-              alert('Venue booked successfully!');
-            } else {
-              alert(result.message || 'Failed to book venue');
-            }
-          } catch (error) {
-            console.error('Booking error:', error);
-            alert('Failed to book venue. Please try again later.');
-          }
+          // Show booking modal or handle booking
+          const bookingModal = new bootstrap.Modal(document.getElementById('bookingModal'));
+          bookingModal.show();
         });
       });
     }
-
-    // Require authentication for venues page
-    document.addEventListener('DOMContentLoaded', function () {
-      Auth.requireAuth();
-    });
   </script>
 </body>
 
