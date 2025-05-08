@@ -1,81 +1,90 @@
-// Decor vendor data
-const decorVendors = [
+// Photographer data
+const photographers = [
     {
-        name: "Royal Decorators",
+        name: "Elite Photography",
         location: "DHA Phase 5, Lahore",
         city: "Lahore",
         price: 50000,
-        staff: ["male", "female"],
-        image: "img/venues/venue1.jpg"
+        contact: "+92 300 1234567",
+        staff: ["male"],
+        image: "img/people/person1.jpg"
     },
     {
-        name: "Elite Wedding Decor",
+        name: "Royal Shots",
         location: "Gulberg, Lahore",
         city: "Lahore",
-        price: 75000,
-        staff: ["male"],
-        image: "img/venues/venue2.jpg"
+        price: 45000,
+        contact: "+92 300 2345678",
+        staff: ["male", "female"],
+        image: "img/people/person2.jpg"
     },
     {
-        name: "Dream Decor Studio",
+        name: "Capture Moments",
         location: "Clifton, Karachi",
         city: "Karachi",
         price: 60000,
+        contact: "+92 300 3456789",
         staff: ["female"],
-        image: "img/venues/venue3.jpg"
+        image: "img/people/person3.jpg"
     },
     {
-        name: "Luxury Event Designers",
+        name: "Lens Masters",
         location: "F-7, Islamabad",
         city: "Islamabad",
-        price: 85000,
-        staff: ["male", "female"],
-        image: "img/venues/venue1.jpg"
+        price: 55000,
+        contact: "+92 300 4567890",
+        staff: ["male"],
+        image: "img/people/person4.jpg"
     },
     {
-        name: "Elegant Decor Solutions",
+        name: "Perfect Frames",
         location: "Bahria Town, Rawalpindi",
         city: "Rawalpindi",
-        price: 45000,
-        staff: ["male"],
-        image: "img/venues/venue2.jpg"
+        price: 40000,
+        contact: "+92 300 5678901",
+        staff: ["male", "female"],
+        image: "img/people/person5.jpg"
     },
     {
-        name: "Grand Wedding Decor",
+        name: "Memories Studio",
         location: "Defence, Karachi",
         city: "Karachi",
-        price: 70000,
+        price: 65000,
+        contact: "+92 300 6789012",
         staff: ["female"],
-        image: "img/venues/venue3.jpg"
+        image: "img/people/person6.jpg"
     },
     {
-        name: "Classic Event Decor",
+        name: "Shutter Magic",
         location: "Model Town, Lahore",
         city: "Lahore",
-        price: 55000,
-        staff: ["male", "female"],
-        image: "img/venues/venue1.jpg"
+        price: 48000,
+        contact: "+92 300 7890123",
+        staff: ["male"],
+        image: "img/people/person1.jpg"
     },
     {
-        name: "Premium Decor Services",
+        name: "Frame Perfect",
         location: "Blue Area, Islamabad",
         city: "Islamabad",
-        price: 65000,
-        staff: ["male"],
-        image: "img/venues/venue2.jpg"
+        price: 52000,
+        contact: "+92 300 8901234",
+        staff: ["male", "female"],
+        image: "img/people/person2.jpg"
     }
 ];
 
-// Function to create vendor card HTML
-function createVendorCard(vendor) {
+// Function to create photographer card HTML
+function createPhotographerCard(photographer) {
     return `
         <div class="col-lg-6 col-md-12 mb-4">
             <div class="venue-card">
-                <img src="${vendor.image}" alt="Venue Image">
+                <img src="${photographer.image}" alt="Photographer Image">
                 <div class="venue-info">
-                    <h6>${vendor.name}</h6>
-                    <p class="text-muted">${vendor.location}</p>
-                    <p class="mb-1">Starting at PKR ${vendor.price.toLocaleString()}</p>
+                    <h6>${photographer.name}</h6>
+                    <p class="text-muted">${photographer.location}</p>
+                    <p class="mb-1">${photographer.contact}</p>
+                    <p class="mb-1">Starting at PKR ${photographer.price.toLocaleString()}</p>
                     <button class="explore-btn">View Details</button>
                 </div>
             </div>
@@ -100,14 +109,12 @@ function applyFilters() {
         }
     });
 
-    const subArea = document.querySelector('input[placeholder="e.g., G-10 Markaz"]').value.toLowerCase();
-
     const budgetRanges = {
-        'budget1': { min: 0, max: 30000 },
-        'budget2': { min: 30001, max: 60000 },
-        'budget3': { min: 60001, max: 100000 },
-        'budget4': { min: 500001, max: 1000000 },
-        'budget5': { min: 1000000, max: Infinity }
+        'budget1': { min: 0, max: 15000 },
+        'budget2': { min: 15001, max: 40000 },
+        'budget3': { min: 40001, max: 70000 },
+        'budget4': { min: 70001, max: 100000 },
+        'budget5': { min: 100000, max: Infinity }
     };
 
     const selectedBudgets = [];
@@ -117,22 +124,17 @@ function applyFilters() {
         }
     });
 
-    // Filter vendors
-    let filteredVendors = decorVendors.filter(vendor => {
+    // Filter photographers
+    let filteredPhotographers = photographers.filter(photographer => {
         // City filter
-        if (selectedCities.length > 0 && !selectedCities.includes(vendor.city)) {
-            return false;
-        }
-
-        // Sub area filter
-        if (subArea && !vendor.location.toLowerCase().includes(subArea)) {
+        if (selectedCities.length > 0 && !selectedCities.includes(photographer.city)) {
             return false;
         }
 
         // Budget filter
         if (selectedBudgets.length > 0) {
             const matchesBudget = selectedBudgets.some(range => 
-                vendor.price >= range.min && vendor.price <= range.max
+                photographer.price >= range.min && photographer.price <= range.max
             );
             if (!matchesBudget) return false;
         }
@@ -140,7 +142,7 @@ function applyFilters() {
         // Staff filter
         if (selectedStaff.length > 0) {
             const hasMatchingStaff = selectedStaff.some(staffType => 
-                vendor.staff.includes(staffType)
+                photographer.staff.includes(staffType)
             );
             if (!hasMatchingStaff) return false;
         }
@@ -148,9 +150,9 @@ function applyFilters() {
         return true;
     });
 
-    // If no filters are selected, show all vendors
-    if (selectedCities.length === 0 && !subArea && selectedBudgets.length === 0 && selectedStaff.length === 0) {
-        filteredVendors = decorVendors;
+    // If no filters are selected, show all photographers
+    if (selectedCities.length === 0 && selectedBudgets.length === 0 && selectedStaff.length === 0) {
+        filteredPhotographers = photographers;
     }
 
     // Find the container and update it with filtered results
@@ -159,13 +161,13 @@ function applyFilters() {
         // Clear existing content
         resultsContainer.innerHTML = '';
         
-        // Add filtered vendors
-        if (filteredVendors.length > 0) {
-            filteredVendors.forEach(vendor => {
-                resultsContainer.innerHTML += createVendorCard(vendor);
+        // Add filtered photographers
+        if (filteredPhotographers.length > 0) {
+            filteredPhotographers.forEach(photographer => {
+                resultsContainer.innerHTML += createPhotographerCard(photographer);
             });
         } else {
-            resultsContainer.innerHTML = '<div class="col-12 text-center"><h4>No vendors found matching your criteria</h4></div>';
+            resultsContainer.innerHTML = '<div class="col-12 text-center"><h4>No photographers found matching your criteria</h4></div>';
         }
     }
 }
@@ -177,12 +179,6 @@ document.addEventListener('DOMContentLoaded', function() {
         checkbox.addEventListener('change', applyFilters);
     });
 
-    // Add event listener to sub area input
-    const subAreaInput = document.querySelector('input[placeholder="e.g., G-10 Markaz"]');
-    if (subAreaInput) {
-        subAreaInput.addEventListener('input', applyFilters);
-    }
-
     // Apply initial filters
     applyFilters();
-});
+}); 
