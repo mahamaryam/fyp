@@ -1,4 +1,4 @@
-// Constants
+// Constant
 const API_BASE_URL = 'http://localhost:4201/api';
 let currentVenueId = null;
 
