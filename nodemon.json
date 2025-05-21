@@ -1,0 +1,4 @@
+{
+  "restartable": "r",
+  "watch": ["src"]
+}

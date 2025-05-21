@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venue Recommendations</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+      <link rel="stylesheet" href="style.css" />
+
+</head>
+<div id="progress-bar"></div>
+
+<body style="background: url('img/bg.jpg') no-repeat center center fixed; background-size: cover;">
+  <div class="overlay"></div>
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <div class="container-fluid">
+    <div class="dropdown">
+      <a class="navbar-brand dropdown-toggle" href="#" id="weddingWizDropdown" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <img id="logo-nav" src="img/logo.png" alt="" style="width: 60px; height: 50px; margin-right: 10px;" />
+        <span style="font-size: 1.5rem;" onclick="location.href='index.html'">Wedding Wiz</span>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-animated" aria-labelledby="weddingWizDropdown">
+        <li><a class="dropdown-item" href="venues.html">💍 Venue Recommendations</a></li>
+        <li><a class="dropdown-item" href="decor.html">📋 Vendor Recommendations</a></li>
+      </ul>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fad fa-bars"></i></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto" id="nav-content">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#section3">Clients</a>
+        </li>
+        <li class="nav-item">
+          <div class="dropdown">
+            <a class="navbar-brand dropdown-toggle" href="#" id="serviesDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 18px;"
+              onclick="location.href='services.html'">
+              Services
+            </a>
+            <ul class="dropdown-menu dropdown-menu-animated" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" href="venues.html"> Wedding Venues</a></li>
+              <li><a class="dropdown-item" href="photographers.html"> Photographers</a></li>
+              <li><a class="dropdown-item" href="decor.html"> Decor </a></li>
+              <li><a class="dropdown-item" href="attire.html"> Attire </a></li>
+              <li><a class="dropdown-item" href="jewellery.html"> Jewellary </a></li>
+              <li><a class="dropdown-item" href="salon.html"> Bridal Salon </a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#section4">Contact</a>
+        </li>
+        <li class="nav-item" id="loginNavItem">
+          <a class="nav-link" href="login.html">Login</a>
+        </li>
+        <li class="nav-item" id="logoutNavItem" style="display: none;">
+          <a class="nav-link" href="#" id="logoutBtn">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div style="margin-left: 50px; margin-right: 50px; font-size: 22px;">
+    <br>
+    <h1 data-aos="fade-down" data-aos-duration="1000">
+  Photographers in Pakistan
+</h1><br>
+<p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+    WeddingWiz connects couples with top photographers in Pakistan, ensuring your wedding is 
+    captured beautifully. Whether you prefer traditional or modern styles, we recommend 
+    photographers that fit your vision perfectly.</p><br>
+
+
+<p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+    We understand how important the right photographer is, which is why WeddingWiz tailors 
+    recommendations based on your style, budget, and preferences. From Karachi to Lahore, 
+    we ensure you find a professional who captures your special moments just the way you
+     envision.
+</p><br>
+
+</div>
+  <div class="container-custom">
+    <div class="row">
+      <!-- Filter Section -->
+      <div class="col-md-3 col-12 filter-container p-4">
+        <button class="btn btn-primary w-100 d-md-none mb-3" style="background-color: #bb536f" type="button"
+          data-bs-toggle="collapse" data-bs-target="#filterSection" aria-expanded="false" aria-controls="filterSection">
+          Filters
+        </button>
+        <div class="collapse d-md-block" id="filterSection">
+          <h5 class="mt-3">Filters</h5>
+          <hr>
+          <!-- City Filter -->
+          <div class="mb-3">
+            <h6>City</h6>
+            <table class="table table-borderless">
+              <tr>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="lahore">
+                    <label class="form-check-label" for="lahore">Lahore</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="karachi">
+                    <label class="form-check-label" for="karachi">Karachi</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="islamabad">
+                    <label class="form-check-label" for="islamabad">Islamabad</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="rawalpindi">
+                    <label class="form-check-label" for="rawalpindi">Rawalpindi</label>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <hr>
+          <!-- Budget Filter -->
+          <div class="mb-3">
+            <h6>Budget (per event)</h6>
+            <table class="table table-borderless">
+              <tr>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="budget1">
+                    <label class="form-check-label" for="budget1">0 - 15,000</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="budget2">
+                    <label class="form-check-label" for="budget2">15,001 - 40,000</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="budget3">
+                    <label class="form-check-label" for="budget3">40,001 - 70,000</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="budget4">
+                    <label class="form-check-label" for="budget4">70,001 - 100,000</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="budget5">
+                    <label class="form-check-label" for="budget5">100,000+</label>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <hr>
+         
+          <!-- Staff Filter -->
+          <div class="mb-3">
+            <h6>Staff</h6>
+            <table class="table table-borderless">
+              <tr>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="male">
+                    <label class="form-check-label" for="male">Male</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="female">
+                    <label class="form-check-label" for="female">Female</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="trans">
+                    <label class="form-check-label" for="trans">Transgender</label>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <hr>
+        
+        </div>
+      </div>
+
+      <!-- Results Section -->
+      <div class="col-md-8 col-12 p-4">
+        <h5>Top Photographers</h5>
+        <div class="row">
+          <!-- Photographer Card 2 -->
+        </div>
+        <div class="row">
+          <!-- Photographer Card 3 -->
+            
+          </div>
+          <!-- Photographer Card 4 -->
+            <div class="col-lg-6 col-md-12 mb-4">
+              
+            </div>
+          </div>
+          </div>
+          <div class="row">
+          <!-- Photographer Card 5 -->
+            <div class="col-lg-6 col-md-12 mb-4">
+             
+            </div>
+          </div>
+          <!-- Photographer Card 6 -->
+            <div class="col-lg-6 col-md-12 mb-4">
+              
+            </div>
+          </div>
+          </div>
+          <div class="row">
+          <!-- Photographer Card 7 -->
+            <div class="col-lg-6 col-md-12 mb-4">
+             
+            </div>
+          </div>
+          <!-- Photographer Card 8 -->
+            <div class="col-lg-6 col-md-12 mb-4">
+              
+            </div>
+          </div>
+          </div>
+      </div>
+      <div id="pagination" class="text-center mt-4"></div>
+
+    </div>
+  </div>
+      <!--Footer-->
+<footer style="margin-top: 200px;">
+  <div class="container-fluid padding">
+      <div class="row text-center">
+          <div class="col-md-4">
+              <hr class="light">
+              <img id="logo-footer" src="img/logo.png" alt="">
+              <hr class="light">
+              <p>042-123-456</p>
+              <p>weddingwiz@gmail.com</p>
+              <p>Street 123</p>
+              <p>Lahore, 54000</p>
+          </div>
+          <div class="col-md-4">
+              <hr class="light">
+              <h5>Our Timings</h5>
+              <hr class="light">
+              <p>Monday:9am to 5pm</p>
+              <p>Saturday:10am to 4pm</p>
+              <p>Sunday:Closed</p>
+          </div>
+          <div class="col-md-4">
+              <hr class="light">
+              <h5>Service Areas</h5>
+              <hr class="light">
+              <p>Karachi, 07516</p>
+              <p>Islamabad, 44050</p>
+              <p>Rawalpindi, 44000</p>
+              <p>Multan, 66000</p>
+          </div>
+      </div>
+      <div class="col-12 text-center">
+          <hr class="light">
+          <h5>&copy; WeddingWizOfficial</h5>
+      </div>
+  </div>
+</footer>
+    <script src="filtercheck_photographers.js"></script>
+    <script src="AOS.js"></script>
+    <script src="dropdown.js"></script>
+    <script src="progressbar.js"></script>
+    <script>
+      // Check login status and update navbar
+      document.addEventListener('DOMContentLoaded', function() {
+        const loginNavItem = document.getElementById('loginNavItem');
+        const logoutNavItem = document.getElementById('logoutNavItem');
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        // Check if user is logged in
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+          loginNavItem.style.display = 'none';
+          logoutNavItem.style.display = 'block';
+        } else {
+          loginNavItem.style.display = 'block';
+          logoutNavItem.style.display = 'none';
+        }
+
+        // Add logout functionality
+        logoutBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          // Clear local storage
+          localStorage.removeItem('token');
+          localStorage.removeItem('isLoggedIn');
+          localStorage.removeItem('currentUser');
+          // Redirect to home page
+          window.location.href = 'index.html';
+        });
+      });
+    </script>
+  </body>
+
+</html>

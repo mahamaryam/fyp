@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Venue Recommendations</title>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Custom styles for pagination */
+    .pagination-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body
+  style="background: url('img/bg.jpg') no-repeat center center fixed; background-size: cover;"
+>
+  <div class="overlay"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+      <div class="dropdown">
+        <a
+          class="navbar-brand dropdown-toggle"
+          href="#"
+          id="weddingWizDropdown"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            id="logo-nav"
+            src="img/logo.png"
+            alt=""
+            style="width: 60px; height: 50px; margin-right: 10px;"
+          />
+          <span style="font-size: 1.5rem;" onclick="location.href='index.html'">
+            Wedding Wiz
+          </span>
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-animated"
+          aria-labelledby="weddingWizDropdown"
+        >
+          <li>
+            <a class="dropdown-item" href="venues.html">💍 Venue Recommendations</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="decor.html">📋 Vendor Recommendations</a>
+          </li>
+        </ul>
+      </div>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span><i class="fad fa-bars"></i></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto" id="nav-content">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#section3">Clients</a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <a
+                class="navbar-brand dropdown-toggle"
+                href="services.html"
+                id="servicesDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style="font-size: 18px;"
+              >
+                Services
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-animated"
+                aria-labelledby="servicesDropdown"
+              >
+                <li><a class="dropdown-item" href="venues.html"> Wedding Venues</a></li>
+                <li>
+                  <a class="dropdown-item" href="photographers.html"> Photographers</a>
+                </li>
+                <li><a class="dropdown-item" href="decor.html"> Decor </a></li>
+                <li><a class="dropdown-item" href="attire.html"> Attire </a></li>
+                <li><a class="dropdown-item" href="jewellery.html"> Jewellary </a></li>
+                <li><a class="dropdown-item" href="salon.html"> Bridal Salon </a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#section4">Contact</a>
+          </li>
+          <li class="nav-item" id="loginNavItem">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+          <li class="nav-item" id="logoutNavItem" style="display: none;">
+            <a class="nav-link" href="#" id="logoutBtn">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div style="margin-left: 50px; margin-right: 50px; font-size: 22px;">
+    <br />
+    <h1 data-aos="fade-down" data-aos-duration="1000">
+      Wedding halls and marquees in Pakistan
+    </h1>
+    <br />
+    <p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+      Explore the finest wedding venues in Pakistan with Wedding Wiz, offering
+      stunning spaces to bring your dream wedding to life. From luxurious
+      wedding marquees in Islamabad to elegant halls in Lahore and Rawalpindi,
+      find venues that blend sophistication, comfort, and modern amenities
+      for an unforgettable celebration.
+    </p>
+    <br />
+
+    <p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+      Whether you're planning a grand Mehndi in a spacious marquee or an
+      intimate Valima in a charming hall, Wedding Wiz provides a diverse range
+      of options tailored to your style and budget.
+    </p>
+    <br />
+
+    <p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+      Discover marquee marriage halls in Lahore and Rawalpindi renowned for
+      their excellent service, exquisite décor, and versatile setups. Whether
+      it's a contemporary wedding theme or a traditional Baraat, these venues
+      offer the perfect balance of elegance and functionality.
+    </p>
+    <br />
+
+    <p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+      Let Wedding Wiz guide you to venues that promise unforgettable memories,
+      with settings that cater to all your wedding needs while ensuring
+      exceptional hospitality and attention to detail.
+    </p>
+    <br />
+  </div>
+
+  <div class="container-custom" style="margin-left: 50px; margin-right: 50px;">
+    <div class="row">
+      <!-- Filter Section -->
+      <div class="col-md-3 col-12 filter-container p-4">
+        <button
+          class="btn btn-primary w-100 d-md-none mb-3"
+          style="background-color: #bb536f"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#filterSection"
+          aria-expanded="false"
+          aria-controls="filterSection"
+        >
+          Filters
+        </button>
+        <div class="collapse d-md-block" id="filterSection">
+          <h5 class="mt-3">Filters</h5>
+          <hr />
+          <!-- City Filter -->
+          <div class="mb-3">
+            <h6>City</h6>
+            <table class="table table-borderless">
+              <tr>
+                <td>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="lahore"
+                    />
+                    <label class="form-check-label" for="lahore">Lahore</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="karachi"
+                    />
+                    <label class="form-check-label" for="karachi">Karachi</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="islamabad"
+                    />
+                    <label class="form-check-label" for="islamabad"
+                      >Islamabad</label
+                    >
+                  </div>
+                </td>
+                <td>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="rawalpindi"
+                    />
+                    <label class="form-check-label" for="rawalpindi"
+                      >Rawalpindi</label
+                    >
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <hr />
+          <!-- Sub Area Filter -->
+          <div class="mb-3">
+            <h6>Sub Area</h6>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="e.g., G-10 Markaz"
+            />
+          </div>
+          <hr />
+          <!-- Budget Filter -->
+          <div class="mb-3">
+            <h6>Budget (per person)</h6>
+            <table class="table table-borderless">
+              <tr>
+                <td>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="budgetLow"
+                    />
+                    <label class="form-check-label" for="budgetLow"
+                      >Less than PKR 3000</label
+                    >
+                  </div>
+                </td>
+                <td>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="budgetMid"
+                    />
+                    <label class="form-check-label" for="budgetMid"
+                      >PKR 3000 - 5000</label
+                    >
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="budgetHigh"
+                    />
+                    <label class="form-check-label" for="budgetHigh"
+                      >More than PKR 5000</label
+                    >
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <hr />
+          <!-- Type Filter -->
+          <div class="mb-3">
+            <h6>Type</h6>
+            <table class="table table-borderless">
+              <tr>
+                <td>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="typeMarquee"
+                    />
+                    <label class="form-check-label" for="typeMarquee"
+                      >Marquee</label
+                    >
+                  </div>
+                </td>
+                <td>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="typeHall"
+                    />
+                    <label class="form-check-label" for="typeHall">Hall</label>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Venues Section -->
+      <div class="col-md-9 col-12">
+        <div
+          class="row row-cols-1 row-cols-md-3 g-4"
+          id="venue-container"
+          style="margin-bottom: 20px"
+        >
+          <!-- Venue cards inserted by JS -->
+        </div>
+
+        <!-- Pagination Controls -->
+        <nav>
+          <ul class="pagination pagination-container" id="pagination">
+            <!-- JS will generate page buttons -->
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Venue Card Template (hidden, cloned by JS) -->
+  <template id="venue-card-template">
+    <div class="col">
+      <div
+        class="card h-100"
+        style="border: none; box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);"
+      >
+        <img
+          src=""
+          class="card-img-top"
+          alt="Venue Image"
+          style="height: 200px; object-fit: cover"
+        />
+        <div class="card-body">
+          <h5 class="card-title venue-name"></h5>
+          <p class="card-text venue-address"></p>
+          <p class="card-text">
+            <small class="text-muted venue-budget"></small>
+          </p>
+          <a href="#" class="btn btn-primary btn-book" style="background-color: #bb536f">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    AOS.init();
+
+    // Check login status and update navbar
+    document.addEventListener('DOMContentLoaded', function() {
+      const loginNavItem = document.getElementById('loginNavItem');
+      const logoutNavItem = document.getElementById('logoutNavItem');
+      const logoutBtn = document.getElementById('logoutBtn');
+
+      // Check if user is logged in
+      if (localStorage.getItem('isLoggedIn') === 'true') {
+        loginNavItem.style.display = 'none';
+        logoutNavItem.style.display = 'block';
+      } else {
+        loginNavItem.style.display = 'block';
+        logoutNavItem.style.display = 'none';
+      }
+
+      // Add logout functionality
+      logoutBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Clear local storage
+        localStorage.removeItem('token');
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('currentUser');
+        // Redirect to home page
+        window.location.href = 'index.html';
+      });
+    });
+
+    // Sample venue data for demonstration
+    const venues = [
+      {
+        name: "Grand Marquee Lahore",
+        address: "123 Mall Rd, Lahore",
+        budget: "PKR 3500 per person",
+        image: "https://picsum.photos/id/1011/400/300",
+        city: "Lahore",
+        type: "Marquee",
+      },
+      {
+        name: "Royal Wedding Hall",
+        address: "45 Blue Area, Islamabad",
+        budget: "PKR 6000 per person",
+        image: "https://picsum.photos/id/1012/400/300",
+        city: "Islamabad",
+        type: "Hall",
+      },
+      {
+        name: "Karachi Celebration Hall",
+        address: "67 Clifton, Karachi",
+        budget: "PKR 2500 per person",
+        image: "https://picsum.photos/id/1013/400/300",
+        city: "Karachi",
+        type: "Hall",
+      },
+      {
+        name: "Elegant Marquee Rawalpindi",
+        address: "89 Satellite Town, Rawalpindi",
+        budget: "PKR 4000 per person",
+        image: "https://picsum.photos/id/1014/400/300",
+        city: "Rawalpindi",
+        type: "Marquee",
+      },
+      {
+        name: "Sunset Wedding Hall",
+        address: "100 Main St, Lahore",
+        budget: "PKR 4500 per person",
+        image: "https://picsum.photos/id/1015/400/300",
+        city: "Lahore",
+        type: "Hall",
+      },
+      {
+        name: "Royal Marquee Karachi",
+        address: "23 Sea View, Karachi",
+        budget: "PKR 5500 per person",
+        image: "https://picsum.photos/id/1016/400/300",
+        city: "Karachi",
+        type: "Marquee",
+      },
+      
+      {
+        name: "Glorious Marquee Lahore",
+        address: "58 Garden Town, Lahore",
+        budget: "PKR 4700 per person",
+        image: "https://picsum.photos/id/1018/400/300",
+        city: "Lahore",
+        type: "Marquee",
+      },
+      // Add more venues here as needed
+    ];
+
+    const venuesPerPage = 6; // Show 6 venues per page
+    let currentPage = 1;
+
+    function renderVenues(page) {
+      const venueContainer = document.getElementById("venue-container");
+      venueContainer.innerHTML = "";
+
+      // Calculate slice indices
+      const start = (page - 1) * venuesPerPage;
+      const end = start + venuesPerPage;
+      const venuesToShow = venues.slice(start, end);
+
+      venuesToShow.forEach((venue) => {
+        const template = document.getElementById("venue-card-template");
+        const clone = template.content.cloneNode(true);
+        clone.querySelector("img").src = venue.image;
+        clone.querySelector(".venue-name").textContent = venue.name;
+        clone.querySelector(".venue-address").textContent = venue.address;
+        clone.querySelector(".venue-budget").textContent = venue.budget;
+        clone.querySelector(".btn-book").href = "#"; // Link for booking can be added
+        venueContainer.appendChild(clone);
+      });
+
+      renderPagination();
+    }
+
+    function renderPagination() {
+      const pagination = document.getElementById("pagination");
+      pagination.innerHTML = "";
+
+      const totalPages = Math.ceil(venues.length / venuesPerPage);
+
+      // Previous button
+      const prevLi = document.createElement("li");
+      prevLi.className = "page-item" + (currentPage === 1 ? " disabled" : "");
+      const prevLink = document.createElement("a");
+      prevLink.className = "page-link";
+      prevLink.href = "#";
+      prevLink.textContent = "Previous";
+      prevLink.onclick = (e) => {
+        e.preventDefault();
+        if (currentPage > 1) {
+          currentPage--;
+          renderVenues(currentPage);
+        }
+      };
+      prevLi.appendChild(prevLink);
+      pagination.appendChild(prevLi);
+
+      // Page numbers
+      for (let i = 1; i <= totalPages; i++) {
+        const li = document.createElement("li");
+        li.className = "page-item" + (i === currentPage ? " active" : "");
+        const link = document.createElement("a");
+        link.className = "page-link";
+        link.href = "#";
+        link.textContent = i;
+        link.onclick = (e) => {
+          e.preventDefault();
+          currentPage = i;
+          renderVenues(currentPage);
+        };
+        li.appendChild(link);
+        pagination.appendChild(li);
+      }
+
+      // Next button
+      const nextLi = document.createElement("li");
+      nextLi.className =
+        "page-item" + (currentPage === totalPages ? " disabled" : "");
+      const nextLink = document.createElement("a");
+      nextLink.className = "page-link";
+      nextLink.href = "#";
+      nextLink.textContent = "Next";
+      nextLink.onclick = (e) => {
+        e.preventDefault();
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderVenues(currentPage);
+        }
+      };
+      nextLi.appendChild(nextLink);
+      pagination.appendChild(nextLi);
+    }
+
+    // Initial render
+    renderVenues(currentPage);
+  </script>
+</body>
+
+</html>

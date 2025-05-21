@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Zainab's Jewellery",
+    "location": "Main Market, Gulberg, Lahore",
+    "price": "PKR 50,000",
+    "specialties": "Traditional Gold Sets, Bridal Sets",
+    "image": "img/jewellery/Luxury Shine Diamonds Art.jpg"
+  },
+  {
+    "name": "Royal Jewels",
+    "location": "Defence Phase 5, Karachi",
+    "price": "PKR 75,000",
+    "specialties": "Diamond Jewelry, Custom Designs",
+    "image": "img/jewellery/Luxury Shine Diamonds Art (1).jpg"
+  },
+  {
+    "name": "The Gem House",
+    "location": "Blue Area, Islamabad",
+    "price": "PKR 85,000",
+    "specialties": "Gemstone Rings, Antique Sets",
+    "image": "img/jewellery/Luxury Shine Diamonds Art (2).jpg"
+  },
+  {
+    "name": "Nauratan Jewels",
+    "location": "Liberty Market, Lahore",
+    "price": "PKR 65,000",
+    "specialties": "Colorful Bridal Sets",
+    "image": "img/jewellery/Luxury Shine Diamonds Art (3).jpg"
+  },
+  {
+    "name": "Eleganza",
+    "location": "Clifton, Karachi",
+    "price": "PKR 90,000",
+    "specialties": "Luxury Diamond Sets",
+    "image": "img/jewellery/Luxury Shine Diamonds Art (4).jpg"
+  }
+]
+

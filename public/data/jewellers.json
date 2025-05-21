@@ -1,0 +1,187 @@
+[
+  {
+    "name": "Zainab's Jewellery",
+    "location": "Main Market, Gulberg, Lahore",
+    "price": "PKR 50,000",
+    "specialties": "Traditional Gold Sets, Bridal Sets",
+    "image": "img/jewellery/Luxury Shine Diamonds Art.jpg"
+  },
+  {
+    "name": "Royal Jewels",
+    "location": "Defence Phase 5, Karachi",
+    "price": "PKR 75,000",
+    "specialties": "Diamond Jewelry, Custom Designs",
+    "image": "img/jewellery/Luxury Shine Diamonds Art (1).jpg"
+  },
+  {
+    "name": "The Gem House",
+    "location": "Blue Area, Islamabad",
+    "price": "PKR 85,000",
+    "specialties": "Gemstone Rings, Antique Sets",
+    "image": "img/jewellery/Luxury Shine Diamonds Art (2).jpg"
+  },
+  {
+    "name": "Nauratan Jewels",
+    "location": "Liberty Market, Lahore",
+    "price": "PKR 65,000",
+    "specialties": "Colorful Bridal Sets",
+    "image": "img/jewellery/Luxury Shine Diamonds Art (3).jpg"
+  },
+  {
+    "name": "Eleganza",
+    "location": "Clifton, Karachi",
+    "price": "PKR 90,000",
+    "specialties": "Luxury Diamond Sets",
+    "image": "img/jewellery/Luxury Shine Diamonds Art (4).jpg"
+  },
+  
+    {
+      "name": "Zainab's Jewellery",
+      "location": "Main Market, Gulberg, Lahore",
+      "price": "PKR 50,000",
+      "specialties": "Traditional Gold Sets, Bridal Sets",
+      "image": "img/jewellery/j1.jpeg"
+    },
+    {
+      "name": "Royal Jewels",
+      "location": "Defence Phase 5, Karachi",
+      "price": "PKR 75,000",
+      "specialties": "Diamond Jewelry, Custom Designs",
+      "image": "img/jewellery/j2.jpeg"
+    },
+    {
+      "name": "The Gem House",
+      "location": "Blue Area, Islamabad",
+      "price": "PKR 85,000",
+      "specialties": "Gemstone Rings, Antique Sets",
+      "image": "img/jewellery/j3.jpeg"
+    },
+    {
+      "name": "Nauratan Jewels",
+      "location": "Liberty Market, Lahore",
+      "price": "PKR 65,000",
+      "specialties": "Colorful Bridal Sets",
+      "image": "img/jewellery/j4.jpeg"
+    },
+    {
+      "name": "Eleganza",
+      "location": "Clifton, Karachi",
+      "price": "PKR 90,000",
+      "specialties": "Luxury Diamond Sets",
+      "image": "img/jewellery/j5.jpeg"
+    },
+    {
+      "name": "Gold Touch",
+      "location": "F-7 Markaz, Islamabad",
+      "price": "PKR 55,000",
+      "specialties": "Gold Bangles, Light Sets",
+      "image": "img/jewellery/j6.jpeg"
+    },
+    {
+      "name": "Shah's Ornaments",
+      "location": "Anarkali Bazaar, Lahore",
+      "price": "PKR 45,000",
+      "specialties": "Traditional Nose Rings, Anklets",
+      "image": "img/jewellery/j7.jpeg"
+    },
+    {
+      "name": "Regal Gems",
+      "location": "DHA Phase 3, Lahore",
+      "price": "PKR 70,000",
+      "specialties": "Gemstone Necklaces, Bridal Sets",
+      "image": "img/jewellery/j8.jpeg"
+    },
+    {
+      "name": "Noor Jewellers",
+      "location": "Bahadurabad, Karachi",
+      "price": "PKR 80,000",
+      "specialties": "Gold & Diamond Fusion Sets",
+      "image": "img/jewellery/j9.jpeg"
+    },
+    {
+      "name": "Rizwan Jewels",
+      "location": "Saddar, Rawalpindi",
+      "price": "PKR 40,000",
+      "specialties": "Affordable Bridal Sets",
+      "image": "img/jewellery/j10.jpeg"
+    },
+    {
+      "name": "Almas Collections",
+      "location": "Millat Road, Faisalabad",
+      "price": "PKR 48,000",
+      "specialties": "Gold Sets with Stones",
+      "image": "img/jewellery/j11.jpeg"
+    },
+    {
+      "name": "Nisa Jewellers",
+      "location": "G-11 Markaz, Islamabad",
+      "price": "PKR 77,000",
+      "specialties": "Custom Diamond Necklaces",
+      "image": "img/jewellery/j12.jpeg"
+    },
+    {
+      "name": "Amber Gold",
+      "location": "Latifabad, Hyderabad",
+      "price": "PKR 52,000",
+      "specialties": "Gold Chains, Wedding Bands",
+      "image": "img/jewellery/j13.jpeg"
+    },
+    {
+      "name": "Naveed's Gems",
+      "location": "Gulshan-e-Iqbal, Karachi",
+      "price": "PKR 63,000",
+      "specialties": "Gemstone Studded Rings",
+      "image": "img/jewellery/j14.jpeg"
+    },
+    {
+      "name": "Queen's Touch",
+      "location": "Iqbal Town, Lahore",
+      "price": "PKR 92,000",
+      "specialties": "Diamond Earrings, Bridal Sets",
+      "image": "img/jewellery/j15.jpeg"
+    },
+    {
+      "name": "Al-Rashid Jewellers",
+      "location": "DHA Phase 1, Karachi",
+      "price": "PKR 69,000",
+      "specialties": "Elegant Gold Sets",
+      "image": "img/jewellery/j16.jpeg"
+    },
+    {
+      "name": "Sana's Ornaments",
+      "location": "Wapda Town, Lahore",
+      "price": "PKR 58,000",
+      "specialties": "Gold Pendants & Bridal Sets",
+      "image": "img/jewellery/j17.jpeg"
+    },
+    {
+      "name": "Kohinoor Jewels",
+      "location": "Satellite Town, Rawalpindi",
+      "price": "PKR 100,000",
+      "specialties": "Exclusive Wedding Collections",
+      "image": "img/jewellery/j18.jpeg"
+    },
+    {
+      "name": "Classic Jewellers",
+      "location": "G-9, Islamabad",
+      "price": "PKR 66,000",
+      "specialties": "Traditional & Modern Fusion",
+      "image": "img/jewellery/j19.jpeg"
+    },
+    {
+      "name": "Zeeshan's Bling",
+      "location": "Cantt, Multan",
+      "price": "PKR 72,000",
+      "specialties": "Bespoke Sets, Diamond Rings",
+      "image": "img/jewellery/j20.jpeg"
+    },
+    {
+      "name": "Motiwala Heritage",
+      "location": "Jail Road, Lahore",
+      "price": "PKR 83,000",
+      "specialties": "Heritage Collection Sets",
+      "image": "img/jewellery/j21.jpeg"
+    }
+  ]
+  
+

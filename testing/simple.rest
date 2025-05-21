@@ -1,0 +1,50 @@
+@baseUrl = http://localhost:4201/api
+
+###
+# -------------------------
+# @name QueryHealth
+GET {{baseUrl}}/health
+Authorization: Bearer {{accessToken}}
+
+# ==================================
+# ==================================
+# ==================================
+# ==================================
+# ==================================
+
+###
+# -------------------------
+# @name CmdSignUp
+POST {{baseUrl}}/auth/sign-up
+
+{
+  "email": "user1@gmail.com",
+  "password": "pass",
+  "fullName": "User 2"
+}
+
+###
+# -------------------------
+# @name CmdLogin
+POST {{baseUrl}}/auth/login
+
+{
+  "email": "user1@gmail.com",
+  "password": "pass"
+}
+
+###
+@accessToken = {{CmdLogin.response.body.$.token}}
+
+# ==================================
+# ==================================
+# ==================================
+# ==================================
+# ==================================
+
+###
+# -------------------------
+# @name QueryGetVenues
+GET {{baseUrl}}/venues
+Authorization: Bearer {{accessToken}}
+
